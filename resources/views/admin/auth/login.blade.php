@@ -125,7 +125,9 @@
     <div class="login-container">
         <div class="login-card">
             <div class="login-header">
-                <div class="logo">🏛️</div>
+                <div class="logo">
+                    <img src="{{ asset('assets/img/logo.jpeg') }}" alt="Logo" style="width:100%; height:100%; object-fit:cover; border-radius:50%;">
+                </div>
                 <h2>Login Admin</h2>
                 <p>Diskominfo Kota Padang</p>
             </div>

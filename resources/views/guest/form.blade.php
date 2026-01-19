@@ -43,10 +43,10 @@
             <div class="form-group">
                 <label for="nomorHp">Nomor Handphone / WhatsApp *</label>
                 <input type="tel" id="nomorHp" name="nomor_hp" required 
-                       placeholder="628123456789"
+                       placeholder="Contoh: 08123456789 atau 628123456789"
                        pattern="[0-9]{10,14}"
                        value="{{ old('nomor_hp') }}">
-                <small>Keterangan: Diawali kode negara (62…)</small>
+
             </div>
 
             <div class="form-group">
@@ -158,15 +158,35 @@
                         <span>Preview Foto</span>
                     </div>
                     <div class="upload-controls">
-                        <input type="file" id="fotoTamu" name="foto_tamu" accept="image/*" capture="camera" onchange="previewPhoto(event)">
-                        <button type="button" class="btn-secondary" onclick="document.getElementById('fotoTamu').click()">
-                            <i class="fas fa-camera"></i> Ambil Foto
+                        <!-- Hidden File Input -->
+                        <input type="file" id="fotoTamu" name="foto_tamu" accept="image/*" capture="environment" onchange="previewPhoto(event)" style="display: none;">
+                        
+                        <!-- Buttons -->
+                        <button type="button" class="btn-secondary" onclick="openCameraModal()">
+                            <i class="fas fa-camera"></i> Ambil Foto (Webcam)
                         </button>
                         <button type="button" class="btn-secondary" onclick="document.getElementById('fotoTamu').click()">
                             <i class="fas fa-upload"></i> Upload File
                         </button>
                     </div>
                     <small>Keterangan: Digunakan sebagai dokumentasi kunjungan e-Government</small>
+                </div>
+            </div>
+
+            <!-- Camera Modal (Hidden by default) -->
+            <div id="cameraModal" class="camera-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center; flex-direction:column;">
+                <div style="background:white; padding:20px; border-radius:10px; text-align:center; max-width:90%; width:500px;">
+                    <h3>Ambil Foto</h3>
+                    <video id="cameraVideo" autoplay playsinline style="width:100%; border-radius:8px; margin-bottom:15px; background:#000;"></video>
+                    <canvas id="cameraCanvas" style="display:none;"></canvas>
+                    <div style="display:flex; justify-content:center; gap:10px;">
+                        <button type="button" class="btn-primary" onclick="capturePhoto()">
+                            <i class="fas fa-camera"></i> Jepret
+                        </button>
+                        <button type="button" class="btn-secondary" onclick="closeCameraModal()">
+                            Batal
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -227,5 +247,83 @@
     setInterval(function() {
         document.getElementById('jamKunjungan').value = new Date().toLocaleTimeString('en-GB');
     }, 1000);
+
+    // Auto-format phone number on blur
+    document.getElementById('nomorHp').addEventListener('blur', function() {
+        let value = this.value.trim();
+        if (value.startsWith('0')) {
+            this.value = '62' + value.substring(1);
+        }
+    });
+
+    // Camera Logic
+    let stream = null;
+
+    async function openCameraModal() {
+        const modal = document.getElementById('cameraModal');
+        const video = document.getElementById('cameraVideo');
+        
+        // Cek apakah browser mendukung
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            alert('Browser Anda tidak mendukung akses kamera atau koneksi tidak aman (HTTPS). Pastikan Anda mengakses via HTTPS.');
+            return;
+        }
+
+        try {
+            stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            video.srcObject = stream;
+            modal.style.display = 'flex';
+        } catch (err) {
+            console.error(err);
+            alert('Gagal mengakses kamera: ' + err.message + '\n\nPastikan Anda mengizinkan akses kamera dan menggunakan HTTPS.');
+        }
+    }
+
+    function closeCameraModal() {
+        const modal = document.getElementById('cameraModal');
+        modal.style.display = 'none';
+        
+        if (stream) {
+            stream.getTracks().forEach(track => track.stop());
+            stream = null;
+        }
+    }
+
+    function capturePhoto() {
+        const video = document.getElementById('cameraVideo');
+        const canvas = document.getElementById('cameraCanvas');
+        const context = canvas.getContext('2d');
+        const fileInput = document.getElementById('fotoTamu');
+
+        // Set canvas dimensions to match video
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        
+        // Draw video frame to canvas
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Convert canvas to blob/file
+        canvas.toBlob(function(blob) {
+            // Create a File object
+            const file = new File([blob], "camera_capture_" + new Date().getTime() + ".jpg", { type: "image/jpeg" });
+            
+            // Validate file size/type if needed
+            
+            // Create a DataTransfer to set the file input value
+            const dataTransfer = new DataTransfer();
+            dataTransfer.items.add(file);
+            fileInput.files = dataTransfer.files;
+            
+            // Trigger preview
+            // Create a fake event object to reuse previewPhoto function or just call it directly logic
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                document.getElementById('photoPreview').innerHTML = `<img src="${e.target.result}" alt="Preview Foto">`;
+            }
+            reader.readAsDataURL(file);
+
+            closeCameraModal();
+        }, 'image/jpeg', 0.8);
+    }
 </script>
 @endsection

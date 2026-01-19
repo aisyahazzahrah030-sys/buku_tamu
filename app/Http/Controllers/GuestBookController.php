@@ -14,6 +14,11 @@ class GuestBookController extends Controller
 
     public function store(Request $request)
     {
+        // Normalize phone number: 08xx -> 628xx
+        if (isset($request->nomor_hp) && str_starts_with($request->nomor_hp, '0')) {
+            $request->merge(['nomor_hp' => preg_replace('/^0/', '62', $request->nomor_hp)]);
+        }
+
         $validated = $request->validate([
             'nama_lengkap' => 'required|string|max:100',
             'nomor_hp' => 'required|string|regex:/^62[0-9]{9,13}$/',
