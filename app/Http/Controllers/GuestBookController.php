@@ -1,0 +1,49 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\GuestBook;
+
+class GuestBookController extends Controller
+{
+    public function index()
+    {
+        return view('guest.form');
+    }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'nama_lengkap' => 'required|string|max:100',
+            'nomor_hp' => 'required|string|regex:/^62[0-9]{9,13}$/',
+            'email' => 'nullable|email|max:100',
+            'instansi' => 'required|string|max:100',
+            'kategori_tamu' => 'required|string',
+            'jenis_layanan' => 'required|string',
+            'keperluan' => 'required|string',
+            'sistem_terkait' => 'nullable|string|max:100',
+            'pegawai_dituju' => 'nullable|string|max:100',
+            'foto_tamu' => 'nullable|image|max:2048',
+            'persetujuan' => 'accepted'
+        ], [
+            'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',
+            'persetujuan.accepted' => 'Anda harus menyetujui penggunaan data!'
+        ]);
+
+        $data = $request->except(['foto_tamu']);
+        $data['persetujuan'] = 1;
+        $data['tanggal_kunjungan'] = now()->toDateString();
+        $data['jam_kunjungan'] = now()->toTimeString();
+
+        // Handle File Upload
+        if ($request->hasFile('foto_tamu')) {
+            $path = $request->file('foto_tamu')->store('uploads/foto_tamu', 'public');
+            $data['foto_tamu'] = $path;
+        }
+
+        GuestBook::create($data);
+
+        return redirect()->route('guest.form')->with('success', 'Data buku tamu berhasil disimpan! Terima kasih atas kunjungan Anda.');
+    }
+}
