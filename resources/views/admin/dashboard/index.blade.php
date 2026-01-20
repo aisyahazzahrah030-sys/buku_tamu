@@ -38,8 +38,11 @@
     <div class="section-header">
         <h3>📋 Data Buku Tamu</h3>
         <div class="export-buttons">
-            <a href="{{ route('admin.guests.export') }}" class="btn-export">
+            <a href="{{ route('admin.guests.export', request()->query()) }}" class="btn-export">
                 📊 Export Excel
+            </a>
+            <a href="{{ route('admin.guests.print', request()->query()) }}" class="btn-export" target="_blank" style="background: #17a2b8;">
+                🖨️ Cetak Laporan
             </a>
         </div>
     </div>
@@ -75,6 +78,9 @@
                             <button class="btn-view" onclick="viewDetail({{ $guest->id }})">
                                 👁️
                             </button>
+                            <a href="{{ route('admin.guests.edit', $guest->id) }}" class="btn-edit" style="text-decoration:none; display:inline-block;">
+                                ✏️
+                            </a>
                             <form action="{{ route('admin.guests.destroy', $guest->id) }}" method="POST" style="display:inline;" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data ini?');">
                                 @csrf
                                 @method('DELETE')
@@ -224,6 +230,15 @@
     }
     .btn-delete {
         background: #dc3545;
+    }
+    .btn-edit {
+        padding: 0.25rem 0.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-right: 0.25rem;
+        background: #ffc107;
+        color: white !important;
     }
     /* Modal Styles */
     .modal {

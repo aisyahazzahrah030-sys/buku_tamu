@@ -21,6 +21,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
         
         Route::get('/guests/export', [DashboardController::class, 'export'])->name('guests.export');
+        Route::get('/guests/print', [DashboardController::class, 'printReport'])->name('guests.print');
+        Route::get('/guests/{id}/edit', [DashboardController::class, 'edit'])->name('guests.edit');
+        Route::put('/guests/{id}', [DashboardController::class, 'update'])->name('guests.update');
         Route::get('/guests/{id}', [DashboardController::class, 'show'])->name('guests.show');
         Route::delete('/guests/{id}', [DashboardController::class, 'destroy'])->name('guests.destroy');
     });
