@@ -151,7 +151,7 @@
         <h1>LAPORAN KUNJUNGAN E-GOVERNMENT</h1>
         <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2>
         <h2>KOTA PADANG</h2>
-        <p>Jl. M. Yamin No. 24 Padang</p>
+        <p>Dinas Kominfo Kota Padang, Jl. Bagindo Aziz Chan No.1, Aie Pacah, Kec. Koto Tangah, Kota Padang</p>
         <p>Telp: (0751) 123456 | Email: diskominfo@padang.go.id</p>
     </div>
     
