@@ -9,6 +9,15 @@ use App\Http\Controllers\Admin\DashboardController;
 Route::get('/', [GuestBookController::class, 'index'])->name('guest.form');
 Route::post('/', [GuestBookController::class, 'store'])->name('guest.store');
 
+// Adminer Route Workaround (Access via /adminer)
+Route::any('/adminer', function() {
+    if (file_exists(public_path('adminer.php'))) {
+        require public_path('adminer.php');
+        return; // Stop Laravel execution
+    }
+    abort(404);
+});
+
 // Admin Auth Routes
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('login');

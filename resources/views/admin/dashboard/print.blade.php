@@ -24,25 +24,49 @@
         }
         
         .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding-bottom: 10px;
+        }
+        
+        .header-logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .header-text {
             text-align: center;
-            margin-bottom: 30px;
+            flex-grow: 1;
+            padding: 0 20px;
         }
         
-        .header h1 {
-            font-size: 24px;
-            margin: 0;
-            color: #1e3c72;
-        }
-        
-        .header h2 {
+        .header-text h1 {
             font-size: 18px;
-            margin: 5px 0;
-            color: #2a5298;
+            margin: 0;
+            color: #000;
+            text-transform: uppercase;
+            line-height: 1.2;
         }
         
-        .header p {
-            margin: 5px 0;
-            font-size: 14px;
+        .header-text h2 {
+            font-size: 16px;
+            margin: 2px 0;
+            color: #000;
+            text-transform: uppercase;
+        }
+        
+        .header-text p {
+            margin: 2px 0;
+            font-size: 12px;
+        }
+
+        .double-line {
+            border-top: 3px solid #000;
+            border-bottom: 1px solid #000;
+            height: 2px;
+            margin-bottom: 20px;
         }
         
         .info-box {
@@ -148,12 +172,15 @@
     </button>
     
     <div class="header">
-        <h1>LAPORAN KUNJUNGAN E-GOVERNMENT</h1>
-        <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2>
-        <h2>KOTA PADANG</h2>
-        <p>Dinas Kominfo Kota Padang, Jl. Bagindo Aziz Chan No.1, Aie Pacah, Kec. Koto Tangah, Kota Padang</p>
-        <p>Telp: (0751) 123456 | Email: diskominfo@padang.go.id</p>
+        <img src="{{ asset('assets/img/logo_padang.png') }}" class="header-logo" alt="Logo Padang">
+        <div class="header-text">
+            <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
+            <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
+            <h1>KOTA PADANG</h1>
+        </div>
+        <img src="{{ asset('assets/img/logo_kominfo.png') }}" class="header-logo" alt="Logo Kominfo">
     </div>
+    <div class="double-line"></div>
     
     <div class="info-box">
         <strong>Periode Laporan:</strong> 
