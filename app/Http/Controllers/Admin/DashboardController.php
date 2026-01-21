@@ -8,11 +8,11 @@ use App\Models\GuestBook;
 
 class DashboardController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $total_records = GuestBook::count();
         $today_count = GuestBook::whereDate('tanggal_kunjungan', now()->toDateString())->count();
-        $guests = GuestBook::latest()->get();
+        $guests = $this->getFilteredGuests($request)->latest()->get();
 
         return view('admin.dashboard.index', compact('total_records', 'today_count', 'guests'));
     }
@@ -56,28 +56,7 @@ class DashboardController extends Controller
 
     public function export(Request $request)
     {
-        $query = GuestBook::query();
-
-        if ($request->search) {
-            $query->where(function($q) use ($request) {
-                $q->where('nama_lengkap', 'like', "%{$request->search}%")
-                  ->orWhere('instansi', 'like', "%{$request->search}%");
-            });
-        }
-        if ($request->kategori) {
-            $query->where('kategori_tamu', $request->kategori);
-        }
-        if ($request->jenis_layanan) {
-            $query->where('jenis_layanan', $request->jenis_layanan);
-        }
-        if ($request->tanggal_awal) {
-            $query->whereDate('tanggal_kunjungan', '>=', $request->tanggal_awal);
-        }
-        if ($request->tanggal_akhir) {
-            $query->whereDate('tanggal_kunjungan', '<=', $request->tanggal_akhir);
-        }
-
-        $guests = $query->latest()->get();
+        $guests = $this->getFilteredGuests($request)->latest()->get();
 
         $headers = [
             'Content-Type' => 'application/vnd.ms-excel',
@@ -88,7 +67,15 @@ class DashboardController extends Controller
             echo view('admin.dashboard.export', compact('guests'));
         }, 200, $headers);
     }
+
     public function printReport(Request $request)
+    {
+        $guests = $this->getFilteredGuests($request)->latest()->get();
+
+        return view('admin.dashboard.print', compact('guests'));
+    }
+
+    private function getFilteredGuests(Request $request)
     {
         $query = GuestBook::query();
 
@@ -111,8 +98,6 @@ class DashboardController extends Controller
             $query->whereDate('tanggal_kunjungan', '<=', $request->tanggal_akhir);
         }
 
-        $guests = $query->latest()->get();
-
-        return view('admin.dashboard.print', compact('guests'));
+        return $query;
     }
 }
