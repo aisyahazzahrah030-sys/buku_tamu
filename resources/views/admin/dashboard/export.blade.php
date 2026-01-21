@@ -1,5 +1,22 @@
 <table border='1'>
     <tr>
+        <td colspan="15" style="text-align: center; font-weight: bold; font-size: 14pt;">LAPORAN BUKU TAMU</td>
+    </tr>
+    <tr>
+        <td colspan="15" style="text-align: center;">
+            Periode: 
+            @if(request('tanggal_awal') && request('tanggal_akhir'))
+                {{ \Carbon\Carbon::parse(request('tanggal_awal'))->format('d/m/Y') }} - {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->format('d/m/Y') }}
+            @elseif(request('tanggal_awal'))
+                Dari {{ \Carbon\Carbon::parse(request('tanggal_awal'))->format('d/m/Y') }}
+            @elseif(request('tanggal_akhir'))
+                Sampai {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->format('d/m/Y') }}
+            @else
+                Semua Data
+            @endif
+        </td>
+    </tr>
+    <tr>
         <th>No</th>
         <th>Nama Lengkap</th>
         <th>Nomor HP</th>

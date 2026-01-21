@@ -158,16 +158,16 @@
     <div class="info-box">
         <strong>Periode Laporan:</strong> 
         @if(request('tanggal_awal') && request('tanggal_akhir'))
-            {{ \Carbon\Carbon::parse(request('tanggal_awal'))->format('d/m/Y') }} - {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->format('d/m/Y') }}
+            {{ \Carbon\Carbon::parse(request('tanggal_awal'))->translatedFormat('l, d F Y') }} - {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->translatedFormat('l, d F Y') }}
         @elseif(request('tanggal_awal'))
-            Dari {{ \Carbon\Carbon::parse(request('tanggal_awal'))->format('d/m/Y') }} hingga sekarang
+            Dari {{ \Carbon\Carbon::parse(request('tanggal_awal'))->translatedFormat('l, d F Y') }} hingga sekarang
         @elseif(request('tanggal_akhir'))
-            Hingga {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->format('d/m/Y') }}
+            Hingga {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->translatedFormat('l, d F Y') }}
         @else
             Semua data
         @endif
         <br>
-        <strong>Tanggal Cetak:</strong> {{ now()->format('d/m/Y H:i:s') }}
+        <strong>Tanggal Cetak:</strong> {{ now()->translatedFormat('l, d F Y H:i:s') }}
         <br>
         <strong>Total Tamu:</strong> {{ $guests->count() }} orang
     </div>
@@ -185,7 +185,7 @@
         <thead>
             <tr>
                 <th width="30">No</th>
-                <th width="120">Tanggal</th>
+                <th width="200">Hari, Tanggal</th>
                 <th width="150">Nama Lengkap</th>
                 <th width="80">No. HP</th>
                 <th width="120">Instansi</th>
@@ -199,7 +199,7 @@
                 <tr class="print-break">
                     <td class="text-center">{{ $loop->iteration }}</td>
                     <td>
-                        {{ $guest->tanggal_kunjungan->format('d/m/Y') }}
+                        {{ $guest->tanggal_kunjungan->translatedFormat('l, d F Y') }}
                         <br>{{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}
                     </td>
                     <td>{{ $guest->nama_lengkap }}</td>
@@ -234,7 +234,7 @@
         </div>
         
         <div class="signature-box">
-            <p>Padang, {{ now()->format('d F Y') }}</p>
+            <p>Padang, {{ now()->translatedFormat('d F Y') }}</p>
             <p>Petugas Administrasi</p>
             <div class="line"></div>
             <p><strong>{{ auth()->user()->name ?? 'Admin' }}</strong></p>
