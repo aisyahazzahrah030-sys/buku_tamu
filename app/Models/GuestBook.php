@@ -18,7 +18,6 @@ class GuestBook extends Model
         'jenis_layanan',
         'keperluan',
         'nama_opd',
-        'nama_pejabat',
         'tanggal_kunjungan',
         'jam_kunjungan',
         'foto_tamu',

@@ -37,9 +37,7 @@
                             $kategoris = [
                                 'opd-padang' => 'OPD Kota Padang',
                                 'pemerintah-lain' => 'Pemerintah Daerah Lain',
-                                'mahasiswa-akademisi' => 'Mahasiswa / Akademisi',
-                                'perusahaan-vendor' => 'Perusahaan / Vendor',
-                                'masyarakat-umum' => 'Masyarakat Umum'
+                                'umum' => 'Umum'
                             ];
                         @endphp
                         @foreach($kategoris as $val => $label)
@@ -80,10 +78,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Pegawe Dituju</label>
-                <input type="text" name="pegawai_dituju" value="{{ old('pegawai_dituju', $guest->pegawai_dituju) }}" class="form-control">
-            </div>
 
             <div class="form-group">
                 <label>Keperluan</label>

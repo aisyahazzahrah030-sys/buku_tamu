@@ -54,14 +54,6 @@
     <div class="detail-value">{{ $guest->keperluan }}</div>
 </div>
 <div class="detail-row">
-    <div class="detail-label">Sistem Terkait</div>
-    <div class="detail-value">{{ $guest->sistem_terkait ?: '-' }}</div>
-</div>
-<div class="detail-row">
-    <div class="detail-label">Pegawai Dituju</div>
-    <div class="detail-value">{{ $guest->pegawai_dituju ?: '-' }}</div>
-</div>
-<div class="detail-row">
     <div class="detail-label">Waktu Kunjungan</div>
     <div class="detail-value">{{ $guest->tanggal_kunjungan->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}</div>
 </div>

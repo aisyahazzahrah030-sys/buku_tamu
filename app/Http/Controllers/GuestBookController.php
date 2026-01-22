@@ -28,7 +28,6 @@ class GuestBookController extends Controller
             'jenis_layanan' => 'required|string',
             'keperluan' => 'required|string',
             'nama_opd' => 'required|string',
-            'nama_pejabat' => 'nullable|string|max:100',
             'foto_tamu' => 'nullable|image|max:2048',
             'persetujuan' => 'accepted'
         ], [

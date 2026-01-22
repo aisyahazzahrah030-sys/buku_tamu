@@ -75,9 +75,7 @@
                     <option value="">-- Pilih Kategori --</option>
                     <option value="opd-padang" {{ old('kategori_tamu') == 'opd-padang' ? 'selected' : '' }}>OPD Kota Padang</option>
                     <option value="pemerintah-lain" {{ old('kategori_tamu') == 'pemerintah-lain' ? 'selected' : '' }}>Pemerintah Daerah Lain</option>
-                    <option value="mahasiswa-akademisi" {{ old('kategori_tamu') == 'mahasiswa-akademisi' ? 'selected' : '' }}>Mahasiswa / Akademisi</option>
-                    <option value="perusahaan-vendor" {{ old('kategori_tamu') == 'perusahaan-vendor' ? 'selected' : '' }}>Perusahaan / Vendor</option>
-                    <option value="masyarakat-umum" {{ old('kategori_tamu') == 'masyarakat-umum' ? 'selected' : '' }}>Masyarakat Umum</option>
+                    <option value="umum" {{ old('kategori_tamu') == 'umum' ? 'selected' : '' }}>Umum</option>
                 </select>
             </div>
         </section>
@@ -128,15 +126,6 @@
                     <!-- Data OPD lengkap akan ditambahkan di sini -->
                 </select>
                 <small>Ketik nama OPD untuk mencari lebih cepat</small>
-            </div>
-
-            <div class="form-group">
-                <label for="namaPejabat">Nama Pejabat/Kepala OPD</label>
-                <input type="text" id="namaPejabat" name="nama_pejabat" readonly 
-                       placeholder="Otomatis terisi setelah memilih OPD" 
-                       value="{{ old('nama_pejabat') }}"
-                       style="background-color: #f8f9fa; cursor: not-allowed;">
-                <small>Nama pejabat akan terisi otomatis setelah memilih OPD</small>
             </div>
 
             <div class="form-group">
@@ -281,14 +270,7 @@
 
         // Auto-populate nama pejabat ketika OPD dipilih
         $('#namaOpd').on('change', function() {
-            const selectedOption = $(this).find('option:selected');
-            const namaPejabat = selectedOption.data('pejabat');
-            
-            if (namaPejabat) {
-                $('#namaPejabat').val(namaPejabat);
-            } else {
-                $('#namaPejabat').val('');
-            }
+            // Logika nama pejabat dihapus
         });
 
         // Trigger change event jika ada old value (untuk error validation)

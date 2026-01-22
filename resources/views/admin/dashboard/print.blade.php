@@ -12,7 +12,7 @@
             }
             .no-print { 
                 display: none; 
-            }
+                }
             .print-break {
                 page-break-inside: avoid;
             }
@@ -117,22 +117,6 @@
             margin-top: 50px;
             text-align: center;
             font-size: 12px;
-        }
-        
-        .signature {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-around;
-        }
-        
-        .signature-box {
-            text-align: center;
-            width: 200px;
-        }
-        
-        .signature-box .line {
-            border-bottom: 1px solid #000;
-            margin: 30px 0 5px;
         }
         
         .no-print {
@@ -247,26 +231,6 @@
     <div class="footer">
         <p><em>Laporan ini dicetak secara otomatis dari Sistem Buku Tamu e-Government</em></p>
         <p>© {{ date('Y') }} Dinas Komunikasi dan Informatika Kota Padang</p>
-    </div>
-    
-    <div class="signature">
-        <div class="signature-box">
-            <p>Mengetahui,</p>
-            <p>Kepala Dinas</p>
-            <p>Komunikasi dan Informatika</p>
-            <p>Kota Padang</p>
-            <div class="line"></div>
-            <p><strong>(Nama Kepala Dinas)</strong></p>
-            <p>NIP. 1234567890123456</p>
-        </div>
-        
-        <div class="signature-box">
-            <p>Padang, {{ now()->translatedFormat('d F Y') }}</p>
-            <p>Petugas Administrasi</p>
-            <div class="line"></div>
-            <p><strong>{{ auth()->user()->name ?? 'Admin' }}</strong></p>
-            <p>NIP. 1234567890123456</p>
-        </div>
     </div>
 </body>
 </html>
