@@ -12,7 +12,7 @@
             }
             .no-print { 
                 display: none; 
-            }
+                }
             .print-break {
                 page-break-inside: avoid;
             }
@@ -119,22 +119,6 @@
             font-size: 12px;
         }
         
-        .signature {
-            margin-top: 50px;
-            display: flex;
-            justify-content: space-around;
-        }
-        
-        .signature-box {
-            text-align: center;
-            width: 200px;
-        }
-        
-        .signature-box .line {
-            border-bottom: 1px solid #000;
-            margin: 30px 0 5px;
-        }
-        
         .no-print {
             background: #28a745;
             color: white;
@@ -204,7 +188,6 @@
         <strong>Filter Aktif:</strong><br>
         @if(request('search')) Pencarian: {{ request('search') }}<br> @endif
         @if(request('kategori')) Kategori: {{ request('kategori') }}<br> @endif
-        @if(request('jenis_layanan')) Layanan: {{ request('jenis_layanan') }}<br> @endif
     </div>
     @endif
     
@@ -217,7 +200,8 @@
                 <th width="80">No. HP</th>
                 <th width="120">Instansi</th>
                 <th width="100">Kategori</th>
-                <th width="100">Layanan</th>
+                <th width="120">Instansi / OPD</th>
+                <th width="120">Pejabat Dituju</th>
                 <th>Keperluan</th>
             </tr>
         </thead>
@@ -233,7 +217,8 @@
                     <td>{{ $guest->nomor_hp }}</td>
                     <td>{{ $guest->instansi }}</td>
                     <td>{{ $guest->kategori_tamu }}</td>
-                    <td>{{ $guest->jenis_layanan }}</td>
+                    <td>{{ $guest->nama_opd }}</td>
+                    <td>{{ $guest->nama_pejabat }}</td>
                     <td>{{ Str::limit($guest->keperluan, 100) }}</td>
                 </tr>
             @empty
@@ -247,26 +232,6 @@
     <div class="footer">
         <p><em>Laporan ini dicetak secara otomatis dari Sistem Buku Tamu e-Government</em></p>
         <p>© {{ date('Y') }} Dinas Komunikasi dan Informatika Kota Padang</p>
-    </div>
-    
-    <div class="signature">
-        <div class="signature-box">
-            <p>Mengetahui,</p>
-            <p>Kepala Dinas</p>
-            <p>Komunikasi dan Informatika</p>
-            <p>Kota Padang</p>
-            <div class="line"></div>
-            <p><strong>(Nama Kepala Dinas)</strong></p>
-            <p>NIP. 1234567890123456</p>
-        </div>
-        
-        <div class="signature-box">
-            <p>Padang, {{ now()->translatedFormat('d F Y') }}</p>
-            <p>Petugas Administrasi</p>
-            <div class="line"></div>
-            <p><strong>{{ auth()->user()->name ?? 'Admin' }}</strong></p>
-            <p>NIP. 1234567890123456</p>
-        </div>
     </div>
 </body>
 </html>

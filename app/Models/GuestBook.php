@@ -15,13 +15,10 @@ class GuestBook extends Model
         'email',
         'instansi',
         'kategori_tamu',
-        'jenis_layanan',
         'keperluan',
         'nama_opd',
-        'nama_pejabat',
         'tanggal_kunjungan',
         'jam_kunjungan',
-        'foto_tamu',
         'persetujuan',
     ];
 

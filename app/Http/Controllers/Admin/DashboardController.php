@@ -36,7 +36,6 @@ class DashboardController extends Controller
             'nomor_hp' => 'required',
             'instansi' => 'required',
             'kategori_tamu' => 'required',
-            'jenis_layanan' => 'required',
             'tanggal_kunjungan' => 'required|date',
             'jam_kunjungan' => 'required',
             'keperluan' => 'required',
@@ -88,9 +87,7 @@ class DashboardController extends Controller
         if ($request->kategori) {
             $query->where('kategori_tamu', $request->kategori);
         }
-        if ($request->jenis_layanan) {
-            $query->where('jenis_layanan', $request->jenis_layanan);
-        }
+
         if ($request->tanggal_awal) {
             $query->whereDate('tanggal_kunjungan', '>=', $request->tanggal_awal);
         }

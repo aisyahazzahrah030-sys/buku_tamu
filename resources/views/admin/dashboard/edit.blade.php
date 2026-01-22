@@ -37,32 +37,11 @@
                             $kategoris = [
                                 'opd-padang' => 'OPD Kota Padang',
                                 'pemerintah-lain' => 'Pemerintah Daerah Lain',
-                                'mahasiswa-akademisi' => 'Mahasiswa / Akademisi',
-                                'perusahaan-vendor' => 'Perusahaan / Vendor',
-                                'masyarakat-umum' => 'Masyarakat Umum'
+                                'umum' => 'Umum'
                             ];
                         @endphp
                         @foreach($kategoris as $val => $label)
                             <option value="{{ $val }}" {{ $guest->kategori_tamu == $val ? 'selected' : '' }}>{{ $label }}</option>
-                        @endforeach
-                    </select>
-                </div>
-
-                <div class="form-group col">
-                    <label>Layanan</label>
-                    <select name="jenis_layanan" class="form-control" required>
-                        @php
-                            $layanans = [
-                                'pengembangan-aplikasi' => 'Pengembangan Aplikasi',
-                                'integrasi-sistem' => 'Integrasi Sistem',
-                                'website-opd' => 'Website OPD',
-                                'data-statistik' => 'Data & Statistik',
-                                'keamanan-informasi' => 'Keamanan Informasi',
-                                'konsultasi-layanan-digital' => 'Konsultasi Layanan Digital'
-                            ];
-                        @endphp
-                        @foreach($layanans as $val => $label)
-                            <option value="{{ $val }}" {{ $guest->jenis_layanan == $val ? 'selected' : '' }}>{{ $label }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -80,10 +59,18 @@
                 </div>
             </div>
 
+<<<<<<< HEAD
+=======
             <div class="form-group">
-                <label>Pegawe Dituju</label>
-                <input type="text" name="pegawai_dituju" value="{{ old('pegawai_dituju', $guest->pegawai_dituju) }}" class="form-control">
+                <label>Instansi / OPD</label>
+                <input type="text" name="nama_opd" value="{{ old('nama_opd', $guest->nama_opd) }}" class="form-control">
             </div>
+
+            <div class="form-group">
+                <label>Pejabat Dituju</label>
+                <input type="text" name="nama_pejabat" value="{{ old('nama_pejabat', $guest->nama_pejabat) }}" class="form-control">
+            </div>
+>>>>>>> 3f3519cb5508722c7317a15a00bf9e9e491d1e2f
 
             <div class="form-group">
                 <label>Keperluan</label>
