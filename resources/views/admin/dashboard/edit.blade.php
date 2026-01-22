@@ -47,25 +47,6 @@
                         @endforeach
                     </select>
                 </div>
-
-                <div class="form-group col">
-                    <label>Layanan</label>
-                    <select name="jenis_layanan" class="form-control" required>
-                        @php
-                            $layanans = [
-                                'pengembangan-aplikasi' => 'Pengembangan Aplikasi',
-                                'integrasi-sistem' => 'Integrasi Sistem',
-                                'website-opd' => 'Website OPD',
-                                'data-statistik' => 'Data & Statistik',
-                                'keamanan-informasi' => 'Keamanan Informasi',
-                                'konsultasi-layanan-digital' => 'Konsultasi Layanan Digital'
-                            ];
-                        @endphp
-                        @foreach($layanans as $val => $label)
-                            <option value="{{ $val }}" {{ $guest->jenis_layanan == $val ? 'selected' : '' }}>{{ $label }}</option>
-                        @endforeach
-                    </select>
-                </div>
             </div>
 
             <div class="form-row">
@@ -81,8 +62,13 @@
             </div>
 
             <div class="form-group">
-                <label>Pegawe Dituju</label>
-                <input type="text" name="pegawai_dituju" value="{{ old('pegawai_dituju', $guest->pegawai_dituju) }}" class="form-control">
+                <label>Instansi / OPD</label>
+                <input type="text" name="nama_opd" value="{{ old('nama_opd', $guest->nama_opd) }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label>Pejabat Dituju</label>
+                <input type="text" name="nama_pejabat" value="{{ old('nama_pejabat', $guest->nama_pejabat) }}" class="form-control">
             </div>
 
             <div class="form-group">

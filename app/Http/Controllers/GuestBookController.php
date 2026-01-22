@@ -25,11 +25,9 @@ class GuestBookController extends Controller
             'email' => 'nullable|email|max:100',
             'instansi' => 'required|string|max:100',
             'kategori_tamu' => 'required|string',
-            'jenis_layanan' => 'required|string',
             'keperluan' => 'required|string',
             'nama_opd' => 'required|string',
             'nama_pejabat' => 'nullable|string|max:100',
-            'foto_tamu' => 'nullable|image|max:2048',
             'persetujuan' => 'accepted'
         ], [
             'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',
@@ -40,12 +38,6 @@ class GuestBookController extends Controller
         $data['persetujuan'] = 1;
         $data['tanggal_kunjungan'] = now()->toDateString();
         $data['jam_kunjungan'] = now()->toTimeString();
-
-        // Handle File Upload
-        if ($request->hasFile('foto_tamu')) {
-            $path = $request->file('foto_tamu')->store('uploads/foto_tamu', 'public');
-            $data['foto_tamu'] = $path;
-        }
 
         GuestBook::create($data);
 

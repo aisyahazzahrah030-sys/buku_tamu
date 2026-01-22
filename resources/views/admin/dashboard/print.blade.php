@@ -204,7 +204,6 @@
         <strong>Filter Aktif:</strong><br>
         @if(request('search')) Pencarian: {{ request('search') }}<br> @endif
         @if(request('kategori')) Kategori: {{ request('kategori') }}<br> @endif
-        @if(request('jenis_layanan')) Layanan: {{ request('jenis_layanan') }}<br> @endif
     </div>
     @endif
     
@@ -217,7 +216,8 @@
                 <th width="80">No. HP</th>
                 <th width="120">Instansi</th>
                 <th width="100">Kategori</th>
-                <th width="100">Layanan</th>
+                <th width="120">Instansi / OPD</th>
+                <th width="120">Pejabat Dituju</th>
                 <th>Keperluan</th>
             </tr>
         </thead>
@@ -233,7 +233,8 @@
                     <td>{{ $guest->nomor_hp }}</td>
                     <td>{{ $guest->instansi }}</td>
                     <td>{{ $guest->kategori_tamu }}</td>
-                    <td>{{ $guest->jenis_layanan }}</td>
+                    <td>{{ $guest->nama_opd }}</td>
+                    <td>{{ $guest->nama_pejabat }}</td>
                     <td>{{ Str::limit($guest->keperluan, 100) }}</td>
                 </tr>
             @empty

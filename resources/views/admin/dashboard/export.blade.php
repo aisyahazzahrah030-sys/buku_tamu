@@ -23,13 +23,11 @@
         <th>Email</th>
         <th>Instansi</th>
         <th>Kategori Tamu</th>
-        <th>Jenis Layanan</th>
         <th>Keperluan</th>
-        <th>Sistem Terkait</th>
-        <th>Pegawai Dituju</th>
+        <th>Instansi/OPD</th>
+        <th>Pejabat Dituju</th>
         <th>Tanggal Kunjungan</th>
         <th>Jam Kunjungan</th>
-        <th>Foto</th>
         <th>Persetujuan</th>
         <th>Dibuat</th>
     </tr>
@@ -41,13 +39,11 @@
         <td>{{ $guest->email }}</td>
         <td>{{ $guest->instansi }}</td>
         <td>{{ $guest->kategori_tamu }}</td>
-        <td>{{ $guest->jenis_layanan }}</td>
         <td>{{ $guest->keperluan }}</td>
-        <td>{{ $guest->sistem_terkait }}</td>
-        <td>{{ $guest->pegawai_dituju }}</td>
+        <td>{{ $guest->nama_opd }}</td>
+        <td>{{ $guest->nama_pejabat }}</td>
         <td>{{ $guest->tanggal_kunjungan->format('d/m/Y') }}</td>
         <td>{{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}</td>
-        <td>{{ $guest->foto_tamu ? 'Ada' : 'Tidak Ada' }}</td>
         <td>{{ $guest->persetujuan ? 'Ya' : 'Tidak' }}</td>
         <td>{{ $guest->created_at->format('d/m/Y H:i:s') }}</td>
     </tr>
