@@ -159,19 +159,6 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div class="form-group">
-                <label for="jenisLayanan">Jenis Layanan e-Government *</label>
-                <select id="jenisLayanan" name="jenis_layanan" required>
-                    <option value="">-- Pilih Layanan --</option>
-                    <option value="pengembangan-aplikasi" {{ old('jenis_layanan') == 'pengembangan-aplikasi' ? 'selected' : '' }}>Pengembangan Aplikasi</option>
-                    <option value="integrasi-sistem" {{ old('jenis_layanan') == 'integrasi-sistem' ? 'selected' : '' }}>Integrasi Sistem</option>
-                    <option value="website-opd" {{ old('jenis_layanan') == 'website-opd' ? 'selected' : '' }}>Website OPD</option>
-                    <option value="data-statistik" {{ old('jenis_layanan') == 'data-statistik' ? 'selected' : '' }}>Data & Statistik</option>
-                    <option value="keamanan-informasi" {{ old('jenis_layanan') == 'keamanan-informasi' ? 'selected' : '' }}>Keamanan Informasi</option>
-                    <option value="konsultasi-layanan-digital" {{ old('jenis_layanan') == 'konsultasi-layanan-digital' ? 'selected' : '' }}>Konsultasi Layanan Digital</option>
-                </select>
-=======
             <div class="form-group" id="pejabatGroup">
                 <label for="namaPejabat">Nama Pejabat/Kepala OPD</label>
                 <input type="text" id="namaPejabat" name="nama_pejabat" readonly 
@@ -179,7 +166,6 @@
                        value="{{ old('nama_pejabat') }}"
                        style="background-color: #f8f9fa; cursor: not-allowed;">
                 <small>Nama pejabat akan terisi otomatis setelah memilih OPD</small>
->>>>>>> 3f3519cb5508722c7317a15a00bf9e9e491d1e2f
             </div>
 
             <div class="form-group">
@@ -293,7 +279,9 @@
 
         // Auto-populate nama pejabat ketika OPD dipilih
         $('#namaOpd').on('change', function() {
-            // Logika nama pejabat dihapus
+            const selectedOption = $(this).find(':selected');
+            const pejabat = selectedOption.data('pejabat');
+            $('#namaPejabat').val(pejabat || '-');
         });
     });
 
