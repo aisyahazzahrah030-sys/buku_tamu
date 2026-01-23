@@ -156,13 +156,13 @@
     </button>
     
     <div class="header">
-        <img src="{{ asset('assets/img/logo_padang.png') }}" class="header-logo" alt="Logo Padang">
+        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
             <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
             <h1>KOTA PADANG</h1>
         </div>
-        <img src="{{ asset('assets/img/logo_kominfo.png') }}" class="header-logo" alt="Logo Kominfo">
+        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}" class="header-logo" alt="Logo Kominfo">
     </div>
     <div class="double-line"></div>
     
