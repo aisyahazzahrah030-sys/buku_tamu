@@ -22,18 +22,11 @@ class GuestBookController extends Controller
         $validated = $request->validate([
             'nama_lengkap' => 'required|string|max:100',
             'nomor_hp' => 'required|string|regex:/^62[0-9]{9,13}$/',
-            'email' => 'nullable|email|max:100',
-            'instansi' => 'required|string|max:100',
             'kategori_tamu' => 'required|string',
             'keperluan' => 'required|string',
             'nama_opd' => 'required|string',
-<<<<<<< HEAD
             'foto_tamu' => 'nullable|image|max:2048',
             'nama_pejabat' => 'nullable|string|max:100',
-=======
-            'nama_pejabat' => 'nullable|string|max:100',
-            'foto_tamu' => 'nullable|image|max:2048',
->>>>>>> a14e1bf7a172ef5359b5f06602a07ed657aacc51
             'persetujuan' => 'accepted'
         ], [
             'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',

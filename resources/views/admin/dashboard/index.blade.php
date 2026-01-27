@@ -71,7 +71,6 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Lengkap</th>
-                    <th>Instansi</th>
                     <th>Kategori</th>
                     <th>Instansi Tujuan</th>
                     <th>Tanggal</th>
@@ -87,7 +86,6 @@
                             <strong>{{ $guest->nama_lengkap }}</strong><br>
                             <small>{{ $guest->nomor_hp }}</small>
                         </td>
-                        <td>{{ $guest->instansi }}</td>
                         <td><span class="badge">{{ $guest->kategori_tamu }}</span></td>
                         <td>{{ $guest->nama_opd }} @if($guest->nama_pejabat)<br><small>({{ $guest->nama_pejabat }})</small>@endif</td>
                         <td>{{ $guest->tanggal_kunjungan->format('d/m/Y') }}</td>
@@ -110,7 +108,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" style="text-align:center;">Tidak ada data ditemukan</td>
+                        <td colspan="7" style="text-align:center;">Tidak ada data ditemukan</td>
                     </tr>
                 @endforelse
             </tbody>

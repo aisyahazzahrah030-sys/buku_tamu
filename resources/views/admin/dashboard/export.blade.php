@@ -1,9 +1,9 @@
 <table border='1'>
     <tr>
-        <td colspan="15" style="text-align: center; font-weight: bold; font-size: 14pt;">LAPORAN BUKU TAMU</td>
+        <td colspan="13" style="text-align: center; font-weight: bold; font-size: 14pt;">LAPORAN BUKU TAMU</td>
     </tr>
     <tr>
-        <td colspan="15" style="text-align: center;">
+        <td colspan="13" style="text-align: center;">
             Periode: 
             @if(request('tanggal_awal') && request('tanggal_akhir'))
                 {{ \Carbon\Carbon::parse(request('tanggal_awal'))->format('d/m/Y') }} - {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->format('d/m/Y') }}
@@ -20,8 +20,6 @@
         <th>No</th>
         <th>Nama Lengkap</th>
         <th>Nomor HP</th>
-        <th>Email</th>
-        <th>Instansi</th>
         <th>Kategori Tamu</th>
         <th>Keperluan</th>
         <th>Instansi/OPD</th>
@@ -36,8 +34,6 @@
         <td>{{ $loop->iteration }}</td>
         <td>{{ $guest->nama_lengkap }}</td>
         <td>{{ $guest->nomor_hp }}</td>
-        <td>{{ $guest->email }}</td>
-        <td>{{ $guest->instansi }}</td>
         <td>{{ $guest->kategori_tamu }}</td>
         <td>{{ $guest->keperluan }}</td>
         <td>{{ $guest->nama_opd }}</td>

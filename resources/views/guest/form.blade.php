@@ -49,17 +49,6 @@
 
             </div>
 
-            <div class="form-group">
-                <label for="email">Email (Opsional)</label>
-                <input type="email" id="email" name="email" 
-                       placeholder="Contoh: budi@email.com" value="{{ old('email') }}">
-            </div>
-
-            <div class="form-group">
-                <label for="instansi">Instansi / Asal Tamu *</label>
-                <input type="text" id="instansi" name="instansi" required 
-                       placeholder="Contoh: OPD Kota Padang / Universitas / Perusahaan / Masyarakat" value="{{ old('instansi') }}">
-            </div>
         </section>
 
         <!-- B. Kategori Tamu -->
