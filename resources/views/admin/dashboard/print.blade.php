@@ -11,7 +11,7 @@
                 margin: 20px;
             }
             .no-print { 
-                display: none; 
+                display: none !important; 
                 }
             .print-break {
                 page-break-inside: avoid;
@@ -147,6 +147,10 @@
     </style>
 </head>
 <body>
+    <div class="no-print" style="margin-bottom: 20px; text-align: right; padding: 0 20px;">
+        <button onclick="window.print()" class="no-print" style="padding: 10px 20px; border: none; border-radius: 5px; background: #28a745; color: white; cursor: pointer; font-size: 16px;">🖨️ Cetak Laporan</button>
+        <button onclick="window.close()" class="no-print btn-close" style="padding: 10px 20px; border: none; border-radius: 5px; background: #dc3545; color: white; cursor: pointer; font-size: 16px; margin-left: 10px;">Tutup</button>
+    </div>
     <div class="header">
         <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
