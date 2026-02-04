@@ -22,7 +22,7 @@
             <div class="header-content">
                 <div class="logo-section">
                     <div class="logo">
-                     <img src="{{ asset('assets/img/logo.jpeg') }}" alt="Logo Diskominfo">
+                        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" alt="Logo Diskominfo">
                     </div>
                     <div class="logo-text">
                         <h1>Diskominfo Kota Padang</h1>

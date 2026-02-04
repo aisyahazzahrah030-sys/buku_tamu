@@ -27,11 +27,7 @@ class GuestBookController extends Controller
             'nama_opd' => 'required|string',
             'foto_tamu' => 'nullable|image|max:2048',
             'nama_pejabat' => 'nullable|string|max:100',
-<<<<<<< HEAD
-            'persetujuan' => 'accepted',
-=======
             'persetujuan' => 'accepted'
->>>>>>> 87018697d1b59c0955b9eeb84ac49e32cd44b903
         ], [
             'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',
             'persetujuan.accepted' => 'Anda harus menyetujui penggunaan data!'

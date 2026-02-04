@@ -1,0 +1,110 @@
+﻿
+
+Name          : balai
+                kota.
+                jpg
+LastWriteTime : 1/21/
+                2026 
+                9:30:
+                17 AM
+Length        : 48458
+                6
+
+Name          : logo-
+                disko
+                minfo
+                .jpg
+LastWriteTime : 2/4/2
+                026 9
+                :15:1
+                6 AM
+Length        : 6105
+
+Name          : logo-
+                kota-
+                padan
+                g.jpg
+LastWriteTime : 2/4/2
+                026 9
+                :13:2
+                6 AM
+Length        : 9102
+
+Name          : logo.
+                jpeg
+LastWriteTime : 1/21/
+                2026 
+                9:30:
+                17 AM
+Length        : 5999
+
+Name          : logo_
+                komin
+                fo.pn
+                g
+LastWriteTime : 1/21/
+                2026 
+                10:15
+                :58 
+                AM
+Length        : 56086
+                0
+
+Name          : logo_
+                komin
+                fo_ba
+                ru.jp
+                g
+LastWriteTime : 1/21/
+                2026 
+                8:21:
+                15 AM
+Length        : 7419
+
+Name          : logo_
+                komin
+                fo_fi
+                nal.p
+                ng
+LastWriteTime : 2/4/2
+                026 9
+                :11:0
+                0 AM
+Length        : 31575
+                2
+
+Name          : logo_
+                padan
+                g.png
+LastWriteTime : 1/21/
+                2026 
+                10:15
+                :41 
+                AM
+Length        : 50875
+                5
+
+Name          : logo_
+                padan
+                g_bar
+                u.jpg
+LastWriteTime : 1/22/
+                2026 
+                2:56:
+                06 PM
+Length        : 80829
+
+Name          : logo_
+                padan
+                g_fin
+                al.pn
+                g
+LastWriteTime : 2/4/2
+                026 9
+                :10:4
+                2 AM
+Length        : 33070
+                9
+
+
+

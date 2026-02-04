@@ -32,8 +32,8 @@
         }
         
         .header-logo {
-            width: 80px;
-            height: auto;
+            height: 100px;
+            width: auto;
         }
 
         .header-text {
@@ -120,13 +120,6 @@
         }
         
         .no-print {
-            background: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
             margin: 20px 0;
             display: inline-block;
             text-decoration: none;
@@ -152,13 +145,13 @@
         <button onclick="window.close()" class="no-print btn-close" style="padding: 10px 20px; border: none; border-radius: 5px; background: #dc3545; color: white; cursor: pointer; font-size: 16px; margin-left: 10px;">Tutup</button>
     </div>
     <div class="header">
-        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}" class="header-logo" alt="Logo Padang">
+        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
             <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
             <h1>KOTA PADANG</h1>
         </div>
-        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}" class="header-logo" alt="Logo Kominfo">
+        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Kominfo">
     </div>
     <div class="double-line"></div>
     

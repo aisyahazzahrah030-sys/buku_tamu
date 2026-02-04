@@ -1,0 +1,10 @@
+﻿balaikota.jpg | 2026-01-21 09:30:17 | 484586
+logo-diskominfo.jpg | 2026-02-04 09:15:16 | 6105
+logo-kota-padang.jpg | 2026-02-04 09:13:26 | 9102
+logo.jpeg | 2026-02-04 09:15:16 | 6105
+logo_kominfo.png | 2026-02-04 09:15:16 | 6105
+logo_kominfo_baru.jpg | 2026-02-04 09:15:16 | 6105
+logo_kominfo_final.png | 2026-02-04 09:11:00 | 315752
+logo_padang.png | 2026-02-04 09:13:26 | 9102
+logo_padang_baru.jpg | 2026-02-04 09:13:26 | 9102
+logo_padang_final.png | 2026-02-04 09:10:42 | 330709
