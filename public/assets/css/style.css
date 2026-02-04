@@ -1046,22 +1046,25 @@ body::after {
     }
 }
 
-/* ===== FORCE LOGO BULAT (FIX) ===== */
+/* ===== LOGO KOTAK TUMPUL (SINKRON ADMIN) ===== */
 .header .logo {
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 10px !important;
+    /* Kotak tumpul */
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: rgba(255, 255, 255, 0.18) !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo img {
-    width: 100% !important;
-    height: 100% !important;
+    width: 80% !important;
+    height: 80% !important;
     object-fit: contain !important;
     border-radius: 50% !important;
+    /* Paksa isi tetap bulat */
     display: block !important;
 }
