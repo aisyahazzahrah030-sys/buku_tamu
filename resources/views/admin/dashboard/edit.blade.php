@@ -59,18 +59,10 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-=======
             <div class="form-group">
                 <label>Instansi / OPD</label>
                 <input type="text" name="nama_opd" value="{{ old('nama_opd', $guest->nama_opd) }}" class="form-control">
             </div>
-
-            <div class="form-group">
-                <label>Pejabat Dituju</label>
-                <input type="text" name="nama_pejabat" value="{{ old('nama_pejabat', $guest->nama_pejabat) }}" class="form-control">
-            </div>
->>>>>>> 3f3519cb5508722c7317a15a00bf9e9e491d1e2f
 
             <div class="form-group">
                 <label>Keperluan</label>

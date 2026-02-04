@@ -51,17 +51,10 @@
     <div class="detail-value">{{ $guest->keperluan }}</div>
 </div>
 <div class="detail-row">
-<<<<<<< HEAD
-=======
     <div class="detail-label">Instansi / OPD</div>
     <div class="detail-value">{{ $guest->nama_opd ?: '-' }}</div>
 </div>
 <div class="detail-row">
-    <div class="detail-label">Pejabat Dituju</div>
-    <div class="detail-value">{{ $guest->nama_pejabat ?: '-' }}</div>
-</div>
-<div class="detail-row">
->>>>>>> 3f3519cb5508722c7317a15a00bf9e9e491d1e2f
     <div class="detail-label">Waktu Kunjungan</div>
     <div class="detail-value">{{ $guest->tanggal_kunjungan->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}</div>
 </div>

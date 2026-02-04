@@ -89,7 +89,7 @@
                         </td>
                         <td>{{ $guest->instansi }}</td>
                         <td><span class="badge">{{ $guest->kategori_tamu }}</span></td>
-                        <td>{{ $guest->nama_opd }} @if($guest->nama_pejabat)<br><small>({{ $guest->nama_pejabat }})</small>@endif</td>
+                        <td>{{ $guest->nama_opd }}</td>
                         <td>{{ $guest->tanggal_kunjungan->format('d/m/Y') }}</td>
                         <td>{{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}</td>
                         <td>
