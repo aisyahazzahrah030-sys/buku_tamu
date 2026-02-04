@@ -6,12 +6,12 @@
     <title>Laporan Kunjungan - Buku Tamu Diskominfo</title>
     <style>
         @page {
-            margin: 0;
+            margin: 1cm;
         }
         @media print {
             body { 
-                font-size: 12px; 
-                margin: 2cm;
+                font-size: 11px;
+                margin: 0;
             }
             .no-print { 
                 display: none !important; 
@@ -24,35 +24,35 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.4;
-            color: #000; /* Hitam pekat */
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .no-print-container {
+            margin-bottom: 20px;
+            text-align: left;
+            padding: 20px;
         }
         
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 5px;
-            padding-bottom: 10px;
+            margin-bottom: 10px;
+            width: 100%;
         }
         
         .header-logo {
-<<<<<<< HEAD
-            height: 85px;
-=======
-<<<<<<< HEAD
-            width: 70px;
-            height: auto;
-=======
-            height: 100px;
->>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
+            height: 80px;
             width: auto;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
+            flex-shrink: 0;
         }
 
         .header-text {
             text-align: center;
             flex-grow: 1;
-            padding: 0 10px;
+            padding: 0 15px;
         }
         
         .header-text h1 {
@@ -61,8 +61,6 @@
             color: #000;
             text-transform: uppercase;
             line-height: 1.2;
-<<<<<<< HEAD
-            letter-spacing: 0.5px;
         }
         
         .header-text h2 {
@@ -71,38 +69,24 @@
             color: #000;
             text-transform: uppercase;
         }
-        
-        .header-text p {
-            margin: 2px 0;
-            font-size: 12px;
-        }
 
-=======
-            font-weight: bold;
-        }
-        
->>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
         .double-line {
             border-top: 2px solid #000;
-            border-bottom: 1px solid #000;
-            height: 1.5px;
-            margin-bottom: 15px;
+            border-bottom: 0.5px solid #000;
+            height: 2px;
+            margin-bottom: 20px;
         }
         
         .info-box {
-            background: #fff;
-            border: 1px solid #000; /* Border hitam pekat */
+            border: 1px solid #000;
             padding: 10px;
-            margin-bottom: 15px;
-            border-radius: 4px;
+            margin-bottom: 20px;
             font-size: 11px;
-            color: #000;
         }
         
         .info-box strong {
             display: inline-block;
-            width: 120px;
-            font-weight: bold;
+            width: 130px;
         }
         
         table {
@@ -113,71 +97,53 @@
         }
         
         th, td {
-            border: 1px solid #000; /* Border hitam pekat */
+            border: 1px solid #000;
             padding: 6px 4px;
             text-align: left;
-            vertical-align: middle;
+            vertical-align: top;
             font-size: 10px;
             word-wrap: break-word;
-            text-transform: capitalize;
-            color: #000;
         }
         
         th {
-            background: #fff; /* Latar putih agar garis hitam jelas */
+            background: #f2f2f2;
             color: #000;
             font-weight: bold;
             text-align: center;
             text-transform: uppercase;
         }
         
-        .no-cap {
-            text-transform: none !important;
-        }
-        
         .text-center {
             text-align: center;
         }
         
-<<<<<<< HEAD
-        tr:nth-child(even) {
-            background: #fff; /* Hilangkan warna selang-seling */
-=======
-        .text-right {
-            text-align: right;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 12px;
-        }
-        
-        .no-print {
-            margin: 20px 0;
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .btn-close {
-            background: #dc3545;
-            margin-left: 10px;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
-        }
-
         .footer {
             margin-top: 30px;
             text-align: center;
-            font-size: 11px;
-            color: #000;
+            font-size: 10px;
         }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            font-size: 14px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-print { background: #28a745; }
+        .btn-close { background: #dc3545; margin-left: 10px; }
     </style>
 </head>
 <body>
-    <div class="no-print" style="margin-bottom: 20px; text-align: right; padding: 0 20px;">
-        <button onclick="window.print()" class="no-print" style="padding: 10px 20px; border: none; border-radius: 5px; background: #28a745; color: white; cursor: pointer; font-size: 16px;">🖨️ Cetak Laporan</button>
-        <button onclick="window.close()" class="no-print btn-close" style="padding: 10px 20px; border: none; border-radius: 5px; background: #dc3545; color: white; cursor: pointer; font-size: 16px; margin-left: 10px;">Tutup</button>
+    <div class="no-print no-print-container">
+        <button onclick="window.print()" class="btn btn-print">🖨️ Cetak Laporan</button>
+        <button onclick="window.close()" class="btn btn-close">Tutup</button>
     </div>
+
     <div class="header">
         <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
@@ -206,53 +172,45 @@
         <strong>Total Tamu:</strong> {{ $guests->count() }} orang
     </div>
     
-    @if(request('search') || request('kategori') || request('jenis_layanan'))
-    <div class="info-box">
-        <strong>Filter Aktif:</strong><br>
-        @if(request('search')) Pencarian: {{ request('search') }}<br> @endif
-        @if(request('kategori')) Kategori: {{ request('kategori') }}<br> @endif
-    </div>
-    @endif
-    
     <table>
         <thead>
             <tr>
-                <th style="width: 4%;">No</th>
-                <th style="width: 12%;">Waktu</th>
-                <th style="width: 15%;">Nama Tamu</th>
-                <th style="width: 10%;">No. HP</th>
-                <th style="width: 10%;">Kategori</th>
-                <th style="width: 15%;">Asal Instansi</th>
-                <th style="width: 14%;">Tujuan / Pejabat</th>
-                <th style="width: 20%;">Keperluan</th>
+                <th style="width: 30px;">No</th>
+                <th style="width: 80px;">Waktu</th>
+                <th style="width: 120px;">Nama Tamu</th>
+                <th style="width: 90px;">No. HP</th>
+                <th style="width: 90px;">Kategori</th>
+                <th style="width: 120px;">Instansi / OPD</th>
+                <th style="width: 100px;">Tujuan</th>
+                <th>Keperluan</th>
             </tr>
         </thead>
         <tbody>
             @forelse($guests as $guest)
                 @php
                     $kategoriLabels = [
-                        'opd-padang' => 'OPD Kota Padang',
-                        'pemerintah-lain' => 'Pemerintah Lain',
+                        'opd-padang' => 'OPD Padang',
+                        'pemerintah-lain' => 'Pem. Lain',
                         'umum' => 'Umum'
                     ];
                     $label = $kategoriLabels[$guest->kategori_tamu] ?? $guest->kategori_tamu;
                 @endphp
                 <tr class="print-break">
                     <td class="text-center">{{ $loop->iteration }}</td>
-                    <td class="no-cap">
-                        {{ $guest->tanggal_kunjungan->translatedFormat('d/m/Y') }}<br>
+                    <td class="text-center">
+                        {{ $guest->tanggal_kunjungan->format('d/m/Y') }}<br>
                         {{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}
                     </td>
                     <td><strong>{{ $guest->nama_lengkap }}</strong></td>
-                    <td class="no-cap text-center" style="font-size: 9px;">{{ $guest->nomor_hp }}</td>
+                    <td class="text-center">{{ $guest->nomor_hp }}</td>
                     <td class="text-center">{{ $label }}</td>
                     <td>{{ $guest->instansi ?: $guest->nama_opd }}</td>
                     <td>{{ $guest->nama_pejabat ?: '-' }}</td>
-                    <td class="no-cap">{{ Str::limit($guest->keperluan, 150) }}</td>
+                    <td>{{ Str::limit($guest->keperluan, 150) }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">Tidak ada data ditemukan</td>
+                    <td colspan="8" class="text-center">Tidak ada data ditemukan</td>
                 </tr>
             @endforelse
         </tbody>
