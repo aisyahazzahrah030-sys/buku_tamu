@@ -49,17 +49,6 @@
 
             </div>
 
-            <div class="form-group">
-                <label for="email">Email (Opsional)</label>
-                <input type="email" id="email" name="email" 
-                       placeholder="Contoh: budi@email.com" value="{{ old('email') }}">
-            </div>
-
-            <div class="form-group">
-                <label for="instansi">Instansi / Asal Tamu *</label>
-                <input type="text" id="instansi" name="instansi" required 
-                       placeholder="Contoh: OPD Kota Padang / Universitas / Perusahaan / Masyarakat" value="{{ old('instansi') }}">
-            </div>
         </section>
 
         <!-- B. Kategori Tamu -->
@@ -92,41 +81,43 @@
                 
                 <!-- Input untuk OPD Kota Padang -->
                 <div id="containerOpdPadang">
-                    <select id="namaOpd" name="nama_opd" class="select2-opd" required>
-                        <option value="">-- Ketik atau Pilih OPD --</option>
-                        <option value="INSPEKTORAT" data-pejabat="Drs. ARFIAN" {{ old('nama_opd') == 'INSPEKTORAT' ? 'selected' : '' }}>INSPEKTORAT</option>
-                        <option value="SEKRETARIAT DPRD" data-pejabat="HENDRIZAL AZHAR, SH, MM" {{ old('nama_opd') == 'SEKRETARIAT DPRD' ? 'selected' : '' }}>SEKRETARIAT DPRD</option>
-                        <option value="BADAN KESATUAN BANGSA POLITIK" data-pejabat="Drs. SYAHENDRI BARKAH" {{ old('nama_opd') == 'BADAN KESATUAN BANGSA POLITIK' ? 'selected' : '' }}>BADAN KESATUAN BANGSA POLITIK</option>
-                        <option value="BADAN PERENCANAAN PEMBANGUNAN DAERAH (BAPPEDA)" data-pejabat="Yenni Yuliza, ST, MT" {{ old('nama_opd') == 'BADAN PERENCANAAN PEMBANGUNAN DAERAH (BAPPEDA)' ? 'selected' : '' }}>BADAN PERENCANAAN PEMBANGUNAN DAERAH (BAPPEDA)</option>
-                        <option value="BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH (BPKAD)" data-pejabat="RAJU MINROPA, S.STP, M.Si" {{ old('nama_opd') == 'BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH (BPKAD)' ? 'selected' : '' }}>BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH (BPKAD)</option>
-                        <option value="BADAN KEPEGAWAIAN DAN PENGEMBANGAN SDM (BKPSDM)" data-pejabat="Ir. MAIRIZON, M.Si" {{ old('nama_opd') == 'BADAN KEPEGAWAIAN DAN PENGEMBANGAN SDM (BKPSDM)' ? 'selected' : '' }}>BADAN KEPEGAWAIAN DAN PENGEMBANGAN SDM (BKPSDM)</option>
-                        <option value="BADAN PENANGGULANGAN BENCANA DAERAH (BPBD)" data-pejabat="HENDRI ZULVITON, ST, MT" {{ old('nama_opd') == 'BADAN PENANGGULANGAN BENCANA DAERAH (BPBD)' ? 'selected' : '' }}>BADAN PENANGGULANGAN BENCANA DAERAH (BPBD)</option>
-                        <option value="BADAN PENDAPATAN DAERAH (BAPENDA)" data-pejabat="Drs. YOSEFRIAWAN" {{ old('nama_opd') == 'BADAN PENDAPATAN DAERAH (BAPENDA)' ? 'selected' : '' }}>BADAN PENDAPATAN DAERAH (BAPENDA)</option>
-                        <option value="SATUAN POLISI PAMONG PRAJA (SATPOL PP)" data-pejabat="-" {{ old('nama_opd') == 'SATUAN POLISI PAMONG PRAJA (SATPOL PP)' ? 'selected' : '' }}>SATUAN POLISI PAMONG PRAJA (SATPOL PP)</option>
-                        <option value="DINAS LINGKUNGAN HIDUP (DLH)" data-pejabat="FADELAN FITRA MASTA, ST,MT" {{ old('nama_opd') == 'DINAS LINGKUNGAN HIDUP (DLH)' ? 'selected' : '' }}>DINAS LINGKUNGAN HIDUP (DLH)</option>
-                        <option value="DINAS SOSIAL" data-pejabat="ERI SENDJAYA, S. Sos, S.Sos, M.Si" {{ old('nama_opd') == 'DINAS SOSIAL' ? 'selected' : '' }}>DINAS SOSIAL</option>
-                        <option value="BAGIAN PENGADAAN BARANG/JASA" data-pejabat="MALVI HENDRI, S.T., M.Si." {{ old('nama_opd') == 'BAGIAN PENGADAAN BARANG/JASA' ? 'selected' : '' }}>BAGIAN PENGADAAN BARANG/JASA</option>
-                        <option value="BAGIAN TATA PEMERINTAHAN" data-pejabat="EKA PUTRA BUHARI, S.STP., M.P.A." {{ old('nama_opd') == 'BAGIAN TATA PEMERINTAHAN' ? 'selected' : '' }}>BAGIAN TATA PEMERINTAHAN</option>
-                        <option value="BAGIAN HUKUM" data-pejabat="RITA ENGLENI, SH, MSI" {{ old('nama_opd') == 'BAGIAN HUKUM' ? 'selected' : '' }}>BAGIAN HUKUM</option>
-                        <option value="BAGIAN ADMINISTRASI PEMBANGUNAN DAN PERENCANAAN" data-pejabat="ERWIN, M. M.A" {{ old('nama_opd') == 'BAGIAN ADMINISTRASI PEMBANGUNAN DAN PERENCANAAN' ? 'selected' : '' }}>BAGIAN ADMINISTRASI PEMBANGUNAN DAN PERENCANAAN</option>
-                        <option value="BAGIAN KESEJAHTERAAN RAKYAT (KESRA)" data-pejabat="JASMAN, S.Sos., M.M" {{ old('nama_opd') == 'BAGIAN KESEJAHTERAAN RAKYAT (KESRA)' ? 'selected' : '' }}>BAGIAN KESEJAHTERAAN RAKYAT (KESRA)</option>
-                        <option value="BAGIAN ORGANISASI" data-pejabat="Tablig Nasution" {{ old('nama_opd') == 'BAGIAN ORGANISASI' ? 'selected' : '' }}>BAGIAN ORGANISASI</option>
-                        <option value="BAGIAN PROTOKOL DAN KOMUNIKASI PIMPINAN (PROKOPIM)" data-pejabat="TOMMY TRD" {{ old('nama_opd') == 'BAGIAN PROTOKOL DAN KOMUNIKASI PIMPINAN (PROKOPIM)' ? 'selected' : '' }}>BAGIAN PROTOKOL DAN KOMUNIKASI PIMPINAN (PROKOPIM)</option>
-                        <option value="BAGIAN KERJASAMA" data-pejabat="-" {{ old('nama_opd') == 'BAGIAN KERJASAMA' ? 'selected' : '' }}>BAGIAN KERJASAMA</option>
-                        <option value="KECAMATAN PADANG BARAT" data-pejabat="-" {{ old('nama_opd') == 'KECAMATAN PADANG BARAT' ? 'selected' : '' }}>KECAMATAN PADANG BARAT</option>
-                        <option value="KECAMATAN PADANG TIMUR" data-pejabat="-" {{ old('nama_opd') == 'KECAMATAN PADANG TIMUR' ? 'selected' : '' }}>KECAMATAN PADANG TIMUR</option>
-                        <option value="KECAMATAN PADANG SELATAN" data-pejabat="Wilman Muchtar" {{ old('nama_opd') == 'KECAMATAN PADANG SELATAN' ? 'selected' : '' }}>KECAMATAN PADANG SELATAN</option>
-                        <option value="KECAMATAN PADANG UTARA" data-pejabat="SA`AT, S.Pd., M.T" {{ old('nama_opd') == 'KECAMATAN PADANG UTARA' ? 'selected' : '' }}>KECAMATAN PADANG UTARA</option>
-                        <option value="KECAMATAN NANGGALO" data-pejabat="AMRIZAL, S.Sos" {{ old('nama_opd') == 'KECAMATAN NANGGALO' ? 'selected' : '' }}>KECAMATAN NANGGALO</option>
-                        <option value="KECAMATAN PAUH" data-pejabat="T MASFETRIN, S.Pt., M.Si" {{ old('nama_opd') == 'KECAMATAN PAUH' ? 'selected' : '' }}>KECAMATAN PAUH</option>
-                        <option value="KECAMATAN KOTO TANGAH" data-pejabat="FIZLAN SETIAWAN, S.STP., M.M" {{ old('nama_opd') == 'KECAMATAN KOTO TANGAH' ? 'selected' : '' }}>KECAMATAN KOTO TANGAH</option>
-                        <option value="KECAMATAN LUBUK BEGALUNG" data-pejabat="NOFIANDI AMIR, S.H., M.H" {{ old('nama_opd') == 'KECAMATAN LUBUK BEGALUNG' ? 'selected' : '' }}>KECAMATAN LUBUK BEGALUNG</option>
-                        <option value="KECAMATAN LUBUK KILANGAN" data-pejabat="AFRIALDI MASBIRAN, SH, M. HUM" {{ old('nama_opd') == 'KECAMATAN LUBUK KILANGAN' ? 'selected' : '' }}>KECAMATAN LUBUK KILANGAN</option>
-                        <option value="KECAMATAN KURANJI" data-pejabat="RIDO SATRIA, S.STP" {{ old('nama_opd') == 'KECAMATAN KURANJI' ? 'selected' : '' }}>KECAMATAN KURANJI</option>
-                        <option value="KECAMATAN BUNGUS TELUK KABUNG" data-pejabat="Harnoldi, SH, MM" {{ old('nama_opd') == 'KECAMATAN BUNGUS TELUK KABUNG' ? 'selected' : '' }}>KECAMATAN BUNGUS TELUK KABUNG</option>
-                        <option value="UNIT ORGANISASI BERSIFAT KHUSUS RUMAH SAKIT UMUM DAERAH dr. RASIDIN" data-pejabat="dr. DESY SUSANTY" {{ old('nama_opd') == 'UNIT ORGANISASI BERSIFAT KHUSUS RUMAH SAKIT UMUM DAERAH dr. RASIDIN' ? 'selected' : '' }}>UNIT ORGANISASI BERSIFAT KHUSUS RUMAH SAKIT UMUM DAERAH dr. RASIDIN</option>
-                    </select>
-                    <small>Ketik nama OPD untuk mencari lebih cepat</small>
+                    <input type="text" id="namaOpd" name="nama_opd" list="opdList" 
+                           placeholder="Contoh: DINAS KOMUNIKASI DAN INFORMATIKA" 
+                           value="{{ old('nama_opd') }}" required>
+                    <datalist id="opdList">
+                        <option value="INSPEKTORAT">
+                        <option value="SEKRETARIAT DPRD">
+                        <option value="BADAN KESATUAN BANGSA POLITIK">
+                        <option value="BADAN PERENCANAAN PEMBANGUNAN DAERAH (BAPPEDA)">
+                        <option value="BADAN PENGELOLAAN KEUANGAN DAN ASET DAERAH (BPKAD)">
+                        <option value="BADAN KEPEGAWAIAN DAN PENGEMBANGAN SDM (BKPSDM)">
+                        <option value="BADAN PENANGGULANGAN BENCANA DAERAH (BPBD)">
+                        <option value="BADAN PENDAPATAN DAERAH (BAPENDA)">
+                        <option value="SATUAN POLISI PAMONG PRAJA (SATPOL PP)">
+                        <option value="DINAS LINGKUNGAN HIDUP (DLH)">
+                        <option value="DINAS SOSIAL">
+                        <option value="BAGIAN PENGADAAN BARANG/JASA">
+                        <option value="BAGIAN TATA PEMERINTAHAN">
+                        <option value="BAGIAN HUKUM">
+                        <option value="BAGIAN ADMINISTRASI PEMBANGUNAN DAN PERENCANAAN">
+                        <option value="BAGIAN KESEJAHTERAAN RAKYAT (KESRA)">
+                        <option value="BAGIAN ORGANISASI">
+                        <option value="BAGIAN PROTOKOL DAN KOMUNIKASI PIMPINAN (PROKOPIM)">
+                        <option value="BAGIAN KERJASAMA">
+                        <option value="KECAMATAN PADANG BARAT">
+                        <option value="KECAMATAN PADANG TIMUR">
+                        <option value="KECAMATAN PADANG SELATAN">
+                        <option value="KECAMATAN PADANG UTARA">
+                        <option value="KECAMATAN NANGGALO">
+                        <option value="KECAMATAN PAUH">
+                        <option value="KECAMATAN KOTO TANGAH">
+                        <option value="KECAMATAN LUBUK BEGALUNG">
+                        <option value="KECAMATAN LUBUK KILANGAN">
+                        <option value="KECAMATAN KURANJI">
+                        <option value="KECAMATAN BUNGUS TELUK KABUNG">
+                        <option value="UNIT ORGANISASI BERSIFAT KHUSUS RUMAH SAKIT UMUM DAERAH dr. RASIDIN">
+                    </datalist>
+                    <small>Ketik nama OPD atau pilih dari saran yang muncul</small>
                 </div>
 
                 <div id="containerGovSumbar" style="display: none;">
@@ -159,27 +150,12 @@
                 </div>
             </div>
 
-<<<<<<< HEAD
-            <div class="form-group">
-                <label for="jenisLayanan">Jenis Layanan e-Government *</label>
-                <select id="jenisLayanan" name="jenis_layanan" required>
-                    <option value="">-- Pilih Layanan --</option>
-                    <option value="pengembangan-aplikasi" {{ old('jenis_layanan') == 'pengembangan-aplikasi' ? 'selected' : '' }}>Pengembangan Aplikasi</option>
-                    <option value="integrasi-sistem" {{ old('jenis_layanan') == 'integrasi-sistem' ? 'selected' : '' }}>Integrasi Sistem</option>
-                    <option value="website-opd" {{ old('jenis_layanan') == 'website-opd' ? 'selected' : '' }}>Website OPD</option>
-                    <option value="data-statistik" {{ old('jenis_layanan') == 'data-statistik' ? 'selected' : '' }}>Data & Statistik</option>
-                    <option value="keamanan-informasi" {{ old('jenis_layanan') == 'keamanan-informasi' ? 'selected' : '' }}>Keamanan Informasi</option>
-                    <option value="konsultasi-layanan-digital" {{ old('jenis_layanan') == 'konsultasi-layanan-digital' ? 'selected' : '' }}>Konsultasi Layanan Digital</option>
-                </select>
-=======
             <div class="form-group" id="pejabatGroup">
                 <label for="namaPejabat">Nama Pejabat/Kepala OPD</label>
-                <input type="text" id="namaPejabat" name="nama_pejabat" readonly 
-                       placeholder="Otomatis terisi setelah memilih OPD" 
-                       value="{{ old('nama_pejabat') }}"
-                       style="background-color: #f8f9fa; cursor: not-allowed;">
-                <small>Nama pejabat akan terisi otomatis setelah memilih OPD</small>
->>>>>>> 3f3519cb5508722c7317a15a00bf9e9e491d1e2f
+                <input type="text" id="namaPejabat" name="nama_pejabat" 
+                       placeholder="Masukkan nama pejabat" 
+                       value="{{ old('nama_pejabat') }}">
+                <small>Silakan isi nama pejabat yang dituju</small>
             </div>
 
             <div class="form-group">
@@ -245,9 +221,9 @@
 
 @section('scripts')
 <script>
-    // Initialize Select2 untuk OPD dropdown
+    // Initialize Select2 untuk Gov dropdown
     $(document).ready(function() {
-        $('.select2-opd, .select2-gov').select2({
+        $('.select2-gov').select2({
             placeholder: '-- Pilih --',
             allowClear: true,
             width: '100%'
@@ -290,11 +266,6 @@
 
         // Trigger change untuk initial state
         $('#kategoriTamu').trigger('change');
-
-        // Auto-populate nama pejabat ketika OPD dipilih
-        $('#namaOpd').on('change', function() {
-            // Logika nama pejabat dihapus
-        });
     });
 
 

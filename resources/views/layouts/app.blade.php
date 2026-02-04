@@ -29,11 +29,7 @@
                         <p>Buku Tamu e-Government</p>
                     </div>
                 </div>
-                <div class="header-actions">
-                    <a href="{{ route('admin.login') }}" class="btn-admin">
-                        <i class="fas fa-user-shield"></i> Admin
-                    </a>
-                </div>
+
             </div>
         </header>
 

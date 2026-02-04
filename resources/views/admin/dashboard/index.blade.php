@@ -41,13 +41,13 @@
         <form action="{{ route('admin.dashboard') }}" method="GET" class="filter-form" style="display: flex; gap: 1rem; align-items: center; flex-wrap: wrap;">
             <div class="date-group" style="display: flex; align-items: center; gap: 0.5rem;">
                 <label for="tanggal_awal" style="font-size: 0.875rem; color: #6c757d;">Dari:</label>
-                <input type="date" name="tanggal_awal" id="tanggal_awal" value="{{ request('tanggal_awal') }}" class="form-control" style="padding: 0.4rem; border: 1px solid #ced4da; border-radius: 4px;">
+                <input type="date" name="tanggal_awal" id="tanggal_awal" value="{{ request('tanggal_awal') }}" class="form-control" style="padding: 0.4rem; border: 1px solid #ced4da; border-radius: 4px;" onchange="this.form.submit()">
             </div>
             <div class="date-group" style="display: flex; align-items: center; gap: 0.5rem;">
                 <label for="tanggal_akhir" style="font-size: 0.875rem; color: #6c757d;">Sampai:</label>
-                <input type="date" name="tanggal_akhir" id="tanggal_akhir" value="{{ request('tanggal_akhir') }}" class="form-control" style="padding: 0.4rem; border: 1px solid #ced4da; border-radius: 4px;">
+                <input type="date" name="tanggal_akhir" id="tanggal_akhir" value="{{ request('tanggal_akhir') }}" class="form-control" style="padding: 0.4rem; border: 1px solid #ced4da; border-radius: 4px;" onchange="this.form.submit()">
             </div>
-            <button type="submit" class="btn-filter" style="padding: 0.4rem 1rem; border: none; border-radius: 4px; background: #667eea; color: white; cursor: pointer;">
+            <button type="submit" class="btn-filter" style="display: none; padding: 0.4rem 1rem; border: none; border-radius: 4px; background: #667eea; color: white; cursor: pointer;">
                 🔍 Filter
             </button>
             <a href="{{ route('admin.dashboard') }}" class="btn-reset" style="padding: 0.4rem 1rem; text-decoration: none; border: 1px solid #6c757d; border-radius: 4px; color: #6c757d;">
@@ -71,7 +71,6 @@
                 <tr>
                     <th>No</th>
                     <th>Nama Lengkap</th>
-                    <th>Instansi</th>
                     <th>Kategori</th>
                     <th>Instansi Tujuan</th>
                     <th>Tanggal</th>
@@ -87,7 +86,6 @@
                             <strong>{{ $guest->nama_lengkap }}</strong><br>
                             <small>{{ $guest->nomor_hp }}</small>
                         </td>
-                        <td>{{ $guest->instansi }}</td>
                         <td><span class="badge">{{ $guest->kategori_tamu }}</span></td>
                         <td>{{ $guest->nama_opd }}</td>
                         <td>{{ $guest->tanggal_kunjungan->format('d/m/Y') }}</td>
@@ -110,7 +108,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="8" style="text-align:center;">Tidak ada data ditemukan</td>
+                        <td colspan="7" style="text-align:center;">Tidak ada data ditemukan</td>
                     </tr>
                 @endforelse
             </tbody>

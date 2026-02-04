@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('guest_books', function (Blueprint $table) {
+            $columnsToDrop = [];
+            if (Schema::hasColumn('guest_books', 'email')) {
+                $columnsToDrop[] = 'email';
+            }
+            if (Schema::hasColumn('guest_books', 'instansi')) {
+                $columnsToDrop[] = 'instansi';
+            }
+            if (!empty($columnsToDrop)) {
+                $table->dropColumn($columnsToDrop);
+            }
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('guest_books', function (Blueprint $table) {
+            $table->string('email')->nullable()->after('nomor_hp');
+            $table->string('instansi')->after('email');
+        });
+    }
+};

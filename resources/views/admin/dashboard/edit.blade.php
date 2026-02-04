@@ -24,10 +24,6 @@
                 <input type="text" name="nomor_hp" value="{{ old('nomor_hp', $guest->nomor_hp) }}" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label>Instansi</label>
-                <input type="text" name="instansi" value="{{ old('instansi', $guest->instansi) }}" class="form-control" required>
-            </div>
 
             <div class="form-row">
                 <div class="form-group col">
@@ -65,6 +61,14 @@
             </div>
 
             <div class="form-group">
+<<<<<<< HEAD
+=======
+                <label>Pejabat Dituju</label>
+                <input type="text" name="nama_pejabat" value="{{ old('nama_pejabat', $guest->nama_pejabat) }}" class="form-control">
+            </div>
+
+            <div class="form-group">
+>>>>>>> 87018697d1b59c0955b9eeb84ac49e32cd44b903
                 <label>Keperluan</label>
                 <textarea name="keperluan" class="form-control" rows="3" required>{{ old('keperluan', $guest->keperluan) }}</textarea>
             </div>

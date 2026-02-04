@@ -12,12 +12,25 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('guest_books', function (Blueprint $table) {
-            // Tambah kolom baru
-            $table->string('nama_opd')->nullable()->after('keperluan');
-            $table->string('nama_pejabat')->nullable()->after('nama_opd');
+            // Tambah kolom baru jika belum ada
+            if (!Schema::hasColumn('guest_books', 'nama_opd')) {
+                $table->string('nama_opd')->nullable()->after('keperluan');
+            }
+            if (!Schema::hasColumn('guest_books', 'nama_pejabat')) {
+                $table->string('nama_pejabat')->nullable()->after('nama_opd');
+            }
             
-            // Hapus kolom lama
-            $table->dropColumn(['sistem_terkait', 'pegawai_dituju']);
+            // Hapus kolom lama jika ada
+            $columnsToDrop = [];
+            if (Schema::hasColumn('guest_books', 'sistem_terkait')) {
+                $columnsToDrop[] = 'sistem_terkait';
+            }
+            if (Schema::hasColumn('guest_books', 'pegawai_dituju')) {
+                $columnsToDrop[] = 'pegawai_dituju';
+            }
+            if (!empty($columnsToDrop)) {
+                $table->dropColumn($columnsToDrop);
+            }
         });
     }
 
