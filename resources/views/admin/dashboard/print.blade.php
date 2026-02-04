@@ -24,7 +24,7 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.4;
-            color: #000; /* Hitam pekat */
+            color: #000;
         }
         
         .header {
@@ -36,13 +36,8 @@
         }
         
         .header-logo {
-<<<<<<< HEAD
-            width: 70px;
-            height: auto;
-=======
             height: 100px;
             width: auto;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
         .header-text {
@@ -69,7 +64,7 @@
         
         .info-box {
             background: #fff;
-            border: 1px solid #000; /* Border hitam pekat */
+            border: 1px solid #000;
             padding: 10px;
             margin-bottom: 15px;
             border-radius: 4px;
@@ -91,7 +86,7 @@
         }
         
         th, td {
-            border: 1px solid #000; /* Border hitam pekat */
+            border: 1px solid #000;
             padding: 6px 4px;
             text-align: left;
             vertical-align: middle;
@@ -102,7 +97,7 @@
         }
         
         th {
-            background: #fff; /* Latar putih agar garis hitam jelas */
+            background: #fff;
             color: #000;
             font-weight: bold;
             text-align: center;
@@ -117,40 +112,26 @@
             text-align: center;
         }
         
-<<<<<<< HEAD
-        tr:nth-child(even) {
-            background: #fff; /* Hilangkan warna selang-seling */
-=======
         .text-right {
             text-align: right;
         }
         
         .footer {
-            margin-top: 50px;
+            margin-top: 30px;
             text-align: center;
-            font-size: 12px;
+            font-size: 11px;
+            color: #000;
         }
         
         .no-print {
-<<<<<<< HEAD
+            text-decoration: none;
             margin: 20px 0;
             display: inline-block;
-=======
->>>>>>> 20b6771db46c37f4e65b72021514a667ea17d813
-            text-decoration: none;
         }
         
         .btn-close {
             background: #dc3545;
             margin-left: 10px;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
-        }
-
-        .footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 11px;
-            color: #000;
         }
     </style>
 </head>

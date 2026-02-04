@@ -21,21 +21,6 @@ class GuestBookController extends Controller
             $request->merge(['nomor_hp' => preg_replace('/^0/', '62', $request->nomor_hp)]);
         }
 
-<<<<<<< HEAD
-        $validated = $request->validate([
-            'nama_lengkap' => 'required|string|max:100',
-            'nomor_hp' => 'required|string|regex:/^62[0-9]{9,13}$/',
-            'kategori_tamu' => 'required|string',
-            'keperluan' => 'required|string',
-            'nama_opd' => 'required|string',
-            'foto_tamu' => 'nullable|image|max:2048',
-            'nama_pejabat' => 'nullable|string|max:100',
-            'persetujuan' => 'accepted'
-        ], [
-            'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',
-            'persetujuan.accepted' => 'Anda harus menyetujui penggunaan data!'
-        ]);
-=======
         try {
             $validated = $request->validate([
                 'nama_lengkap' => 'required|string|max:100',
@@ -51,7 +36,6 @@ class GuestBookController extends Controller
                 'nomor_hp.regex' => 'Format nomor HP tidak valid! Gunakan format 62xxxxxxxxxx',
                 'persetujuan.accepted' => 'Anda harus menyetujui penggunaan data!'
             ]);
->>>>>>> 20b6771db46c37f4e65b72021514a667ea17d813
 
             $data = $request->except(['foto_tamu']);
             $data['persetujuan'] = 1;
