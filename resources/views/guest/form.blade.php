@@ -177,15 +177,15 @@
             <div class="form-group">
                 <label for="tanggalKunjungan">Tanggal Kunjungan</label>
                 <input type="text" id="tanggalKunjungan" name="tanggal_kunjungan" readonly 
-                       value="{{ date('d/m/Y') }}">
+                       value="{{ now()->translatedFormat('d F Y') }}">
                 <small>Otomatis oleh sistem</small>
             </div>
 
             <div class="form-group">
                 <label for="jamKunjungan">Jam Kunjungan</label>
                 <input type="text" id="jamKunjungan" name="jam_kunjungan" readonly 
-                       value="{{ date('H:i:s') }}">
-                <small>Otomatis oleh sistem</small>
+                       value="{{ now()->format('H:i') }}">
+                <small>Otomatis oleh sistem (diperbarui setiap menit)</small>
             </div>
         </section>
 
@@ -274,10 +274,13 @@
         // Reset time (handled by interval below for display)
     }
 
-    // Update waktu setiap detik
+    // Update waktu setiap menit
     setInterval(function() {
-        document.getElementById('jamKunjungan').value = new Date().toLocaleTimeString('en-GB');
-    }, 1000);
+        const now = new Date();
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('jamKunjungan').value = hours + ':' + minutes;
+    }, 60000);
 
     // Auto-format phone number on blur
     document.getElementById('nomorHp').addEventListener('blur', function() {
