@@ -14,6 +14,13 @@
         </div>
     @endif
 
+    @if (session('error'))
+        <div class="alert alert-error">
+            <i class="fas fa-exclamation-triangle"></i>
+            {{ session('error') }}
+        </div>
+    @endif
+
     @if ($errors->any())
         <div class="alert alert-error">
             <i class="fas fa-exclamation-circle"></i>

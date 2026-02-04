@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Laporan Kunjungan - Buku Tamu Diskominfo</title>
     <style>
+        @page {
+            margin: 0;
+        }
         @media print {
             body { 
                 font-size: 12px; 
-                margin: 20px;
+                margin: 2cm;
             }
             .no-print { 
                 display: none !important; 
