@@ -47,13 +47,10 @@
     <div class="detail-value">{{ $guest->nama_opd ?: '-' }}</div>
 </div>
 <div class="detail-row">
-<<<<<<< HEAD
-=======
     <div class="detail-label">Pejabat Dituju</div>
     <div class="detail-value">{{ $guest->nama_pejabat ?: '-' }}</div>
 </div>
 <div class="detail-row">
->>>>>>> 87018697d1b59c0955b9eeb84ac49e32cd44b903
     <div class="detail-label">Waktu Kunjungan</div>
     <div class="detail-value">{{ $guest->tanggal_kunjungan->format('d/m/Y') }} - {{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}</div>
 </div>
