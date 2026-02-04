@@ -12,7 +12,7 @@
             }
             .no-print { 
                 display: none !important; 
-                }
+            }
             .print-break {
                 page-break-inside: avoid;
             }
@@ -71,7 +71,7 @@
         
         .info-box {
             background: #f8f9fa;
-            border: 1px solid #dee2e6;
+            border: 1px solid #000;
             padding: 15px;
             margin-bottom: 20px;
             border-radius: 5px;
@@ -89,15 +89,15 @@
         }
         
         th, td {
-            border: 1px solid #dee2e6;
+            border: 1px solid #000;
             padding: 8px;
             text-align: left;
             vertical-align: top;
         }
         
         th {
-            background: #1e3c72;
-            color: white;
+            background: #f2f2f2;
+            color: #000;
             font-weight: bold;
         }
         
@@ -120,22 +120,9 @@
         }
         
         .no-print {
-            background: #28a745;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            margin: 20px 0;
-            display: inline-block;
             text-decoration: none;
         }
         
-        .no-print:hover {
-            background: #218838;
-        }
-
         .btn-close {
             background: #dc3545;
             margin-left: 10px;
@@ -194,9 +181,9 @@
                 <th width="150">Tanggal & Jam</th>
                 <th width="150">Nama Lengkap</th>
                 <th width="80">No. HP</th>
-                <th width="120">Instansi</th>
                 <th width="100">Kategori</th>
-                <th width="120">Instansi / OPD</th>
+                <th width="150">Instansi / OPD</th>
+                <th width="150">Pejabat Dituju</th>
                 <th>Keperluan</th>
             </tr>
         </thead>
@@ -210,14 +197,14 @@
                     </td>
                     <td>{{ $guest->nama_lengkap }}</td>
                     <td>{{ $guest->nomor_hp }}</td>
-                    <td>{{ $guest->instansi }}</td>
                     <td>{{ $guest->kategori_tamu }}</td>
                     <td>{{ $guest->nama_opd }}</td>
+                    <td>{{ $guest->nama_pejabat }}</td>
                     <td>{{ Str::limit($guest->keperluan, 100) }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="7" class="text-center">Tidak ada data ditemukan</td>
+                    <td colspan="8" class="text-center">Tidak ada data ditemukan</td>
                 </tr>
             @endforelse
         </tbody>
