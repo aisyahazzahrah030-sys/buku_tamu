@@ -36,8 +36,13 @@
         }
         
         .header-logo {
+<<<<<<< HEAD
             width: 70px;
             height: auto;
+=======
+            height: 100px;
+            width: auto;
+>>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
         .header-text {
@@ -112,8 +117,33 @@
             text-align: center;
         }
         
+<<<<<<< HEAD
         tr:nth-child(even) {
             background: #fff; /* Hilangkan warna selang-seling */
+=======
+        .text-right {
+            text-align: right;
+        }
+        
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+        }
+        
+        .no-print {
+<<<<<<< HEAD
+            margin: 20px 0;
+            display: inline-block;
+=======
+>>>>>>> 20b6771db46c37f4e65b72021514a667ea17d813
+            text-decoration: none;
+        }
+        
+        .btn-close {
+            background: #dc3545;
+            margin-left: 10px;
+>>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
         .footer {
@@ -130,13 +160,13 @@
         <button onclick="window.close()" class="no-print btn-close" style="padding: 10px 20px; border: none; border-radius: 5px; background: #dc3545; color: white; cursor: pointer; font-size: 16px; margin-left: 10px;">Tutup</button>
     </div>
     <div class="header">
-        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}" class="header-logo" alt="Logo Padang">
+        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
             <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
             <h1>KOTA PADANG</h1>
         </div>
-        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}" class="header-logo" alt="Logo Kominfo">
+        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Kominfo">
     </div>
     <div class="double-line"></div>
     

@@ -1,0 +1,14 @@
+﻿D:\BUKU TAMU\buku_tamu\backup_native\assets\img\balaikota.jpg | 2026-01-21 09:30:17 | 484586
+D:\BUKU TAMU\buku_tamu\backup_native\assets\img\logo.jpeg | 2026-01-21 09:30:17 | 5999
+D:\BUKU TAMU\buku_tamu\backup_native\uploads\foto_tamu\696d8b8eb4c84.png | 2026-01-21 09:30:17 | 2270601
+D:\BUKU TAMU\buku_tamu\laravel_migration\public\assets\img\logo.jpeg | 2026-01-21 09:30:17 | 5999
+D:\BUKU TAMU\buku_tamu\public\assets\img\balaikota.jpg | 2026-01-21 09:30:17 | 484586
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo-diskominfo.jpg | 2026-02-04 09:15:16 | 6105
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo-kota-padang.jpg | 2026-02-04 09:13:26 | 9102
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo.jpeg | 2026-01-21 09:30:17 | 5999
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_kominfo.png | 2026-01-21 10:15:58 | 560860
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_kominfo_baru.jpg | 2026-01-21 08:21:15 | 7419
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_kominfo_final.png | 2026-02-04 09:11:00 | 315752
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_padang.png | 2026-01-21 10:15:41 | 508755
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_padang_baru.jpg | 2026-01-22 14:56:06 | 80829
+D:\BUKU TAMU\buku_tamu\public\assets\img\logo_padang_final.png | 2026-02-04 09:10:42 | 330709
