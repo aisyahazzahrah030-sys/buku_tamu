@@ -24,6 +24,7 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.4;
+            color: #000; /* Hitam pekat */
         }
         
         .header {
@@ -35,8 +36,17 @@
         }
         
         .header-logo {
+<<<<<<< HEAD
             height: 85px;
+=======
+<<<<<<< HEAD
+            width: 70px;
+            height: auto;
+=======
+            height: 100px;
+>>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
             width: auto;
+>>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
         .header-text {
@@ -51,6 +61,7 @@
             color: #000;
             text-transform: uppercase;
             line-height: 1.2;
+<<<<<<< HEAD
             letter-spacing: 0.5px;
         }
         
@@ -66,53 +77,72 @@
             font-size: 12px;
         }
 
+=======
+            font-weight: bold;
+        }
+        
+>>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
         .double-line {
-            border-top: 3px solid #000;
+            border-top: 2px solid #000;
             border-bottom: 1px solid #000;
-            height: 2px;
-            margin-bottom: 20px;
+            height: 1.5px;
+            margin-bottom: 15px;
         }
         
         .info-box {
-            background: #f8f9fa;
-            border: 1px solid #000;
-            padding: 15px;
-            margin-bottom: 20px;
-            border-radius: 5px;
+            background: #fff;
+            border: 1px solid #000; /* Border hitam pekat */
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            font-size: 11px;
+            color: #000;
         }
         
         .info-box strong {
             display: inline-block;
-            width: 150px;
+            width: 120px;
+            font-weight: bold;
         }
         
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            table-layout: fixed;
         }
         
         th, td {
-            border: 1px solid #000;
-            padding: 8px;
+            border: 1px solid #000; /* Border hitam pekat */
+            padding: 6px 4px;
             text-align: left;
-            vertical-align: top;
+            vertical-align: middle;
+            font-size: 10px;
+            word-wrap: break-word;
+            text-transform: capitalize;
+            color: #000;
         }
         
         th {
-            background: #f2f2f2;
+            background: #fff; /* Latar putih agar garis hitam jelas */
             color: #000;
             font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
         }
         
-        tr:nth-child(even) {
-            background: #f8f9fa;
+        .no-cap {
+            text-transform: none !important;
         }
         
         .text-center {
             text-align: center;
         }
         
+<<<<<<< HEAD
+        tr:nth-child(even) {
+            background: #fff; /* Hilangkan warna selang-seling */
+=======
         .text-right {
             text-align: right;
         }
@@ -132,10 +162,14 @@
         .btn-close {
             background: #dc3545;
             margin-left: 10px;
+>>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
-        .btn-close:hover {
-            background: #c82333;
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 11px;
+            color: #000;
         }
     </style>
 </head>
@@ -183,34 +217,42 @@
     <table>
         <thead>
             <tr>
-                <th width="30">No</th>
-                <th width="150">Tanggal & Jam</th>
-                <th width="150">Nama Lengkap</th>
-                <th width="80">No. HP</th>
-                <th width="100">Kategori</th>
-                <th width="150">Instansi / OPD</th>
-                <th width="150">Pejabat Dituju</th>
-                <th>Keperluan</th>
+                <th style="width: 4%;">No</th>
+                <th style="width: 12%;">Waktu</th>
+                <th style="width: 15%;">Nama Tamu</th>
+                <th style="width: 10%;">No. HP</th>
+                <th style="width: 10%;">Kategori</th>
+                <th style="width: 15%;">Asal Instansi</th>
+                <th style="width: 14%;">Tujuan / Pejabat</th>
+                <th style="width: 20%;">Keperluan</th>
             </tr>
         </thead>
         <tbody>
             @forelse($guests as $guest)
+                @php
+                    $kategoriLabels = [
+                        'opd-padang' => 'OPD Kota Padang',
+                        'pemerintah-lain' => 'Pemerintah Lain',
+                        'umum' => 'Umum'
+                    ];
+                    $label = $kategoriLabels[$guest->kategori_tamu] ?? $guest->kategori_tamu;
+                @endphp
                 <tr class="print-break">
                     <td class="text-center">{{ $loop->iteration }}</td>
-                    <td>
-                        {{ $guest->tanggal_kunjungan->translatedFormat('d F Y') }}
-                        <br>{{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}
+                    <td class="no-cap">
+                        {{ $guest->tanggal_kunjungan->translatedFormat('d/m/Y') }}<br>
+                        {{ \Carbon\Carbon::parse($guest->jam_kunjungan)->format('H:i') }}
                     </td>
-                    <td>{{ $guest->nama_lengkap }}</td>
-                    <td>{{ $guest->nomor_hp }}</td>
-                    <td>{{ $guest->kategori_tamu }}</td>
-                    <td>{{ $guest->nama_opd }}</td>
-                    <td>{{ $guest->nama_pejabat }}</td>
-                    <td>{{ Str::limit($guest->keperluan, 100) }}</td>
+                    <td><strong>{{ $guest->nama_lengkap }}</strong></td>
+                    <td class="no-cap text-center" style="font-size: 9px;">{{ $guest->nomor_hp }}</td>
+                    <td class="text-center">{{ $label }}</td>
+                    <td>{{ $guest->instansi ?: $guest->nama_opd }}</td>
+                    <td>{{ $guest->nama_pejabat ?: '-' }}</td>
+                    <td class="no-cap">{{ Str::limit($guest->keperluan, 150) }}</td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" class="text-center">Tidak ada data ditemukan</td>
+                    <td colspan="7" class="text-center">Tidak ada data ditemukan</td>
                 </tr>
             @endforelse
         </tbody>
