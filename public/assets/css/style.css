@@ -1046,25 +1046,24 @@ body::after {
     }
 }
 
-/* ===== LOGO KOTAK TUMPUL (SINKRON ADMIN) ===== */
-.header .logo {
-    width: 44px !important;
-    height: 44px !important;
-    border-radius: 10px !important;
-    /* Kotak tumpul */
+/* ===== LOGO BULAT MURNI (PUBLIK & ADMIN) ===== */
+.header .logo,
+.admin-header .logo {
+    width: 42px !important;
+    height: 42px !important;
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: rgba(255, 255, 255, 0.18) !important;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background: transparent !important;
+    border-radius: 50% !important;
 }
 
-.header .logo img {
-    width: 80% !important;
-    height: 80% !important;
+.header .logo img,
+.admin-header .logo img {
+    width: 100% !important;
+    height: 100% !important;
     object-fit: contain !important;
     border-radius: 50% !important;
-    /* Paksa isi tetap bulat */
     display: block !important;
 }
