@@ -12,9 +12,11 @@ class GuestBook extends Model
     protected $fillable = [
         'nama_lengkap',
         'nomor_hp',
+        'instansi',
         'kategori_tamu',
         'keperluan',
         'nama_opd',
+        'nama_pejabat',
         'tanggal_kunjungan',
         'jam_kunjungan',
         'persetujuan',

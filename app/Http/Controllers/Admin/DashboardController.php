@@ -34,8 +34,10 @@ class DashboardController extends Controller
         $request->validate([
             'nama_lengkap' => 'required',
             'nomor_hp' => 'required',
-            'instansi' => 'required',
+            'instansi' => 'nullable',
             'kategori_tamu' => 'required',
+            'nama_opd' => 'required',
+            'nama_pejabat' => 'nullable',
             'tanggal_kunjungan' => 'required|date',
             'jam_kunjungan' => 'required',
             'keperluan' => 'required',
