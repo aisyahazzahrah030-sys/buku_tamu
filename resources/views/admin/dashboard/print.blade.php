@@ -35,26 +35,27 @@
         }
         
         .header-logo {
-            height: 100px;
+            height: 85px;
             width: auto;
         }
 
         .header-text {
             text-align: center;
             flex-grow: 1;
-            padding: 0 20px;
+            padding: 0 10px;
         }
         
         .header-text h1 {
-            font-size: 18px;
+            font-size: 16px;
             margin: 0;
             color: #000;
             text-transform: uppercase;
             line-height: 1.2;
+            letter-spacing: 0.5px;
         }
         
         .header-text h2 {
-            font-size: 16px;
+            font-size: 14px;
             margin: 2px 0;
             color: #000;
             text-transform: uppercase;
@@ -123,11 +124,8 @@
         }
         
         .no-print {
-<<<<<<< HEAD
             margin: 20px 0;
             display: inline-block;
-=======
->>>>>>> 20b6771db46c37f4e65b72021514a667ea17d813
             text-decoration: none;
         }
         
@@ -150,8 +148,8 @@
         <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
-            <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
-            <h1>KOTA PADANG</h1>
+            <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2>
+            <h2>KOTA PADANG</h2>
         </div>
         <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Kominfo">
     </div>
