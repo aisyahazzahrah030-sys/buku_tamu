@@ -36,7 +36,18 @@
         }
         
         .header-logo {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            height: 85px;
+=======
+<<<<<<< HEAD
+            width: 70px;
+            height: auto;
+=======
+>>>>>>> ee2f2f191f5606aa6a1542bc53657adbcf7592f0
             height: 100px;
+>>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
             width: auto;
         }
 
@@ -52,9 +63,27 @@
             color: #000;
             text-transform: uppercase;
             line-height: 1.2;
+<<<<<<< HEAD
+            letter-spacing: 0.5px;
+        }
+        
+        .header-text h2 {
+            font-size: 14px;
+            margin: 2px 0;
+            color: #000;
+            text-transform: uppercase;
+        }
+        
+        .header-text p {
+            margin: 2px 0;
+            font-size: 12px;
+        }
+
+=======
             font-weight: bold;
         }
         
+>>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
         .double-line {
             border-top: 2px solid #000;
             border-bottom: 1px solid #000;
@@ -124,9 +153,15 @@
         }
         
         .no-print {
+<<<<<<< HEAD
             text-decoration: none;
             margin: 20px 0;
             display: inline-block;
+=======
+            margin: 20px 0;
+            display: inline-block;
+            text-decoration: none;
+>>>>>>> ee2f2f191f5606aa6a1542bc53657adbcf7592f0
         }
         
         .btn-close {
@@ -144,8 +179,8 @@
         <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
-            <h1>DINAS KOMUNIKASI DAN INFORMATIKA</h1>
-            <h1>KOTA PADANG</h1>
+            <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2>
+            <h2>KOTA PADANG</h2>
         </div>
         <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Kominfo">
     </div>
