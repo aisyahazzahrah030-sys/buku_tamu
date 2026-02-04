@@ -163,7 +163,7 @@
             </form>
             
             <div class="login-footer">
-                <p>📝 Default: admin / admin123</p>
+
                 <a href="{{ route('guest.form') }}">← Kembali ke Buku Tamu</a>
             </div>
         </div>
