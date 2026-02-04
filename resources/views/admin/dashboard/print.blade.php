@@ -10,8 +10,8 @@
         }
         @media print {
             body { 
-                font-size: 12px; 
-                margin: 2cm;
+                font-size: 11px; 
+                margin: 1cm; /* Kurangi margin pemotong kertas */
             }
             .no-print { 
                 display: none !important; 
@@ -24,44 +24,54 @@
         body {
             font-family: Arial, sans-serif;
             line-height: 1.4;
-            color: #000; /* Hitam pekat */
+            color: #000;
         }
         
         .header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 100%;
+            height: 70px; /* Kurangi tinggi header seiring logo mengecil */
+            position: relative;
             margin-bottom: 5px;
-            padding-bottom: 10px;
         }
         
-        .header-logo {
-<<<<<<< HEAD
-            height: 85px;
-=======
-<<<<<<< HEAD
-            width: 70px;
-            height: auto;
-=======
-            height: 100px;
->>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
+        .header-logo-left {
+            position: absolute;
+            left: -15px; /* Margin negatif agar lebih ke ujung */
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px; /* Kecilkan logo */
             width: auto;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
+            z-index: 10;
+        }
+
+        .header-logo-right {
+            position: absolute;
+            right: -15px; /* Margin negatif agar lebih ke ujung */
+            top: 50%;
+            transform: translateY(-50%);
+            height: 50px; /* Kecilkan logo */
+            width: auto;
+            z-index: 10;
         }
 
         .header-text {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
             text-align: center;
-            flex-grow: 1;
-            padding: 0 10px;
+            width: 100%;
+            z-index: 1;
         }
         
         .header-text h1 {
-            font-size: 16px;
+            font-size: 15px;
             margin: 0;
             color: #000;
             text-transform: uppercase;
-            line-height: 1.2;
-<<<<<<< HEAD
+            line-height: 1.1;
+            font-weight: bold;
             letter-spacing: 0.5px;
         }
         
@@ -70,18 +80,9 @@
             margin: 2px 0;
             color: #000;
             text-transform: uppercase;
-        }
-        
-        .header-text p {
-            margin: 2px 0;
-            font-size: 12px;
-        }
-
-=======
             font-weight: bold;
         }
         
->>>>>>> 0f4d7ad561b1c0fb9671f0834d99deb380977c31
         .double-line {
             border-top: 2px solid #000;
             border-bottom: 1px solid #000;
@@ -139,30 +140,8 @@
             text-align: center;
         }
         
-<<<<<<< HEAD
         tr:nth-child(even) {
             background: #fff; /* Hilangkan warna selang-seling */
-=======
-        .text-right {
-            text-align: right;
-        }
-        
-        .footer {
-            margin-top: 50px;
-            text-align: center;
-            font-size: 12px;
-        }
-        
-        .no-print {
-            margin: 20px 0;
-            display: inline-block;
-            text-decoration: none;
-        }
-        
-        .btn-close {
-            background: #dc3545;
-            margin-left: 10px;
->>>>>>> e5993d63a6d54bf1faaaa67d81e44c8f8629a51a
         }
 
         .footer {
@@ -179,13 +158,13 @@
         <button onclick="window.close()" class="no-print btn-close" style="padding: 10px 20px; border: none; border-radius: 5px; background: #dc3545; color: white; cursor: pointer; font-size: 16px; margin-left: 10px;">Tutup</button>
     </div>
     <div class="header">
-        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Padang">
+        <img src="{{ asset('assets/img/logo_padang_baru.jpg') }}?v={{ time() }}" class="header-logo-left" alt="Logo Padang">
         <div class="header-text">
             <h1>LAPORAN BUKU TAMU E-GOVERNMENT</h1>
             <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2>
             <h2>KOTA PADANG</h2>
         </div>
-        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo" alt="Logo Kominfo">
+        <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" class="header-logo-right" alt="Logo Kominfo">
     </div>
     <div class="double-line"></div>
     
