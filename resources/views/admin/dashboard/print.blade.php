@@ -6,7 +6,8 @@
     <title>Laporan Kunjungan - Buku Tamu Diskominfo</title>
     <style>
         @page {
-            margin: 1cm;
+            size: A4;
+            margin: 1.5cm;
         }
         @media print {
             body { 
@@ -44,7 +45,7 @@
         }
         
         .header-logo {
-            height: 80px;
+            height: 95px;
             width: auto;
             flex-shrink: 0;
         }
@@ -56,18 +57,23 @@
         }
         
         .header-text h1 {
-            font-size: 16px;
+            font-size: 21px;
             margin: 0;
             color: #000;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.1;
+            font-weight: bold;
+            letter-spacing: 1px;
+            white-space: nowrap;
         }
         
         .header-text h2 {
-            font-size: 14px;
-            margin: 2px 0;
+            font-size: 16px;
+            margin: 5px 0;
             color: #000;
             text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 0.5px;
         }
 
         .double-line {
@@ -157,17 +163,32 @@
     
     <div class="info-box">
         <strong>Periode Laporan:</strong> 
-        @if(request('tanggal_awal') && request('tanggal_akhir'))
-            {{ \Carbon\Carbon::parse(request('tanggal_awal'))->translatedFormat('d F Y') }} - {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->translatedFormat('d F Y') }}
-        @elseif(request('tanggal_awal'))
-            Dari {{ \Carbon\Carbon::parse(request('tanggal_awal'))->translatedFormat('d F Y') }} hingga sekarang
-        @elseif(request('tanggal_akhir'))
-            Hingga {{ \Carbon\Carbon::parse(request('tanggal_akhir'))->translatedFormat('d F Y') }}
-        @else
-            Semua data
-        @endif
+        @php
+            $start = request('tanggal_awal') ? \Carbon\Carbon::parse(request('tanggal_awal')) : null;
+            $end = request('tanggal_akhir') ? \Carbon\Carbon::parse(request('tanggal_akhir')) : null;
+            
+            $period = 'Semua data';
+            if ($start && $end) {
+                if ($start->isSameDay($end)) {
+                    $period = $start->translatedFormat('d F Y');
+                } elseif ($start->isSameMonth($end) && $start->isSameYear($end)) {
+                    $period = $start->format('d') . ' - ' . $end->translatedFormat('d F Y');
+                } elseif ($start->isSameYear($end)) {
+                    $period = $start->translatedFormat('d F') . ' - ' . $end->translatedFormat('d F Y');
+                } else {
+                    $period = $start->translatedFormat('d F Y') . ' - ' . $end->translatedFormat('d F Y');
+                }
+            } elseif ($start) {
+                $period = 'Dari ' . $start->translatedFormat('d F Y');
+            } elseif ($end) {
+                $period = 'Hingga ' . $end->translatedFormat('d F Y');
+            }
+        @endphp
+        {{ $period }}
         <br>
-        <strong>Tanggal Cetak:</strong> {{ now()->translatedFormat('d F Y H:i:s') }}
+        <strong>Tanggal Cetak:</strong> {{ now()->translatedFormat('d F Y') }}
+        <br>
+        <strong>Waktu Cetak:</strong> {{ now()->format('H:i') }}
         <br>
         <strong>Total Tamu:</strong> {{ $guests->count() }} orang
     </div>
