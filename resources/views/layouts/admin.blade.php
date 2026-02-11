@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin - Buku Tamu Diskominfo')</title>
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}?v={{ time() }}">
     <style>
         /* Admin specific additions if needed */
         .admin-header {
@@ -21,7 +21,7 @@
         <div class="header-content">
             <div class="logo-section">
                 <div class="logo">
-                    <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" alt="Logo" style="height: 40px; border-radius: 50%;">
+                    <img src="{{ asset('assets/img/logo_kominfo_baru.jpg') }}?v={{ time() }}" alt="Logo">
                 </div>
                 <div class="logo-text">
                     <h1>Diskominfo Padang</h1>

@@ -1046,19 +1046,21 @@ body::after {
     }
 }
 
-/* ===== FORCE LOGO BULAT (FIX) ===== */
-.header .logo {
-    width: 50px !important;
-    height: 50px !important;
-    border-radius: 50% !important;
+/* ===== LOGO BULAT MURNI (PUBLIK & ADMIN) ===== */
+.header .logo,
+.admin-header .logo {
+    width: 42px !important;
+    height: 42px !important;
     overflow: hidden !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    background: rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+    border-radius: 50% !important;
 }
 
-.header .logo img {
+.header .logo img,
+.admin-header .logo img {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
